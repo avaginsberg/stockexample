@@ -13,8 +13,11 @@
 		1027733725E56BB6004B746B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1027733525E56BB6004B746B /* Main.storyboard */; };
 		1027733925E56BB8004B746B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1027733825E56BB8004B746B /* Assets.xcassets */; };
 		1027733C25E56BB8004B746B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1027733A25E56BB8004B746B /* LaunchScreen.storyboard */; };
-		1027734725E56BB8004B746B /* StockdoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027734625E56BB8004B746B /* StockdoTests.swift */; };
+		1027734725E56BB8004B746B /* KeyChainStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027734625E56BB8004B746B /* KeyChainStoreTests.swift */; };
 		1027735225E56BB8004B746B /* StockdoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027735125E56BB8004B746B /* StockdoUITests.swift */; };
+		1027736825E56CE1004B746B /* KeyChainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027736725E56CE1004B746B /* KeyChainStore.swift */; };
+		1027737225E56E19004B746B /* KeyChainStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027737125E56E19004B746B /* KeyChainStoreError.swift */; };
+		1027738325E574E1004B746B /* KeyChainStoreQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027738225E574E1004B746B /* KeyChainStoreQueryable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,11 +47,14 @@
 		1027733B25E56BB8004B746B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1027733D25E56BB8004B746B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1027734225E56BB8004B746B /* StockdoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockdoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1027734625E56BB8004B746B /* StockdoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockdoTests.swift; sourceTree = "<group>"; };
+		1027734625E56BB8004B746B /* KeyChainStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStoreTests.swift; sourceTree = "<group>"; };
 		1027734825E56BB8004B746B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1027734D25E56BB8004B746B /* StockdoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockdoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1027735125E56BB8004B746B /* StockdoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockdoUITests.swift; sourceTree = "<group>"; };
 		1027735325E56BB8004B746B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1027736725E56CE1004B746B /* KeyChainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStore.swift; sourceTree = "<group>"; };
+		1027737125E56E19004B746B /* KeyChainStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStoreError.swift; sourceTree = "<group>"; };
+		1027738225E574E1004B746B /* KeyChainStoreQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStoreQueryable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 				1027733125E56BB6004B746B /* SceneDelegate.swift */,
 				1027733325E56BB6004B746B /* ViewController.swift */,
 				1027733525E56BB6004B746B /* Main.storyboard */,
+				1027736525E56C8A004B746B /* Service */,
 				1027733825E56BB8004B746B /* Assets.xcassets */,
 				1027733A25E56BB8004B746B /* LaunchScreen.storyboard */,
 				1027733D25E56BB8004B746B /* Info.plist */,
@@ -113,7 +120,7 @@
 		1027734525E56BB8004B746B /* StockdoTests */ = {
 			isa = PBXGroup;
 			children = (
-				1027734625E56BB8004B746B /* StockdoTests.swift */,
+				1027734625E56BB8004B746B /* KeyChainStoreTests.swift */,
 				1027734825E56BB8004B746B /* Info.plist */,
 			);
 			path = StockdoTests;
@@ -126,6 +133,24 @@
 				1027735325E56BB8004B746B /* Info.plist */,
 			);
 			path = StockdoUITests;
+			sourceTree = "<group>";
+		};
+		1027736525E56C8A004B746B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1027736625E56C98004B746B /* KeyChainService */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		1027736625E56C98004B746B /* KeyChainService */ = {
+			isa = PBXGroup;
+			children = (
+				1027736725E56CE1004B746B /* KeyChainStore.swift */,
+				1027737125E56E19004B746B /* KeyChainStoreError.swift */,
+				1027738225E574E1004B746B /* KeyChainStoreQueryable.swift */,
+			);
+			path = KeyChainService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +285,10 @@
 			files = (
 				1027733425E56BB6004B746B /* ViewController.swift in Sources */,
 				1027733025E56BB6004B746B /* AppDelegate.swift in Sources */,
+				1027738325E574E1004B746B /* KeyChainStoreQueryable.swift in Sources */,
+				1027737225E56E19004B746B /* KeyChainStoreError.swift in Sources */,
 				1027733225E56BB6004B746B /* SceneDelegate.swift in Sources */,
+				1027736825E56CE1004B746B /* KeyChainStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1027734725E56BB8004B746B /* StockdoTests.swift in Sources */,
+				1027734725E56BB8004B746B /* KeyChainStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +467,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5W5HYDSXPX;
 				INFOPLIST_FILE = Stockdo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -446,7 +475,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Dayton.Stockdo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -458,6 +487,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5W5HYDSXPX;
 				INFOPLIST_FILE = Stockdo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,7 +495,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Dayton.Stockdo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
