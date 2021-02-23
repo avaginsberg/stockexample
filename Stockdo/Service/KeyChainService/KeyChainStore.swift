@@ -15,7 +15,7 @@ import Security
     self.keyChainStoreQueryable = keyChainStoreQueryable
   }
   
-  private func setValue(_ value: String, for userAccount: String) throws {
+    func setValue(_ value: String, for userAccount: String) throws {
     // 1
     guard let encodedPassword = value.data(using: .utf8) else {
       throw KeyChainStoreError.string2DataConversionError
@@ -52,7 +52,7 @@ import Security
 
   }
   
-  private func getValue(for userAccount: String) throws -> String? {
+   func getValue(for userAccount: String) throws -> String? {
     // 1
     var query = keyChainStoreQueryable.query
     query[String(kSecMatchLimit)] = kSecMatchLimitOne
@@ -86,7 +86,7 @@ import Security
 
   }
   
-  private func removeValue(for userAccount: String) throws {
+   func removeValue(for userAccount: String) throws {
     var query = keyChainStoreQueryable.query
     query[String(kSecAttrAccount)] = userAccount
 
@@ -97,7 +97,7 @@ import Security
 
   }
   
-  private func removeAllValues() throws {
+   func removeAllValues() throws {
     let query = keyChainStoreQueryable.query
       
     let status = SecItemDelete(query as CFDictionary)
@@ -107,7 +107,7 @@ import Security
 
   }
   
-  private func error(from status: OSStatus) -> KeyChainStoreError {
+   func error(from status: OSStatus) -> KeyChainStoreError {
     let message = SecCopyErrorMessageString(status, nil) as String? ?? NSLocalizedString("Unhandled Error", comment: "")
     return KeyChainStoreError.unhandledError(message: message)
   }

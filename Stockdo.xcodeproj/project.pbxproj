@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		1027733025E56BB6004B746B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027732F25E56BB6004B746B /* AppDelegate.swift */; };
 		1027733225E56BB6004B746B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027733125E56BB6004B746B /* SceneDelegate.swift */; };
-		1027733425E56BB6004B746B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027733325E56BB6004B746B /* ViewController.swift */; };
-		1027733725E56BB6004B746B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1027733525E56BB6004B746B /* Main.storyboard */; };
+		1027733425E56BB6004B746B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027733325E56BB6004B746B /* SettingViewController.swift */; };
 		1027733925E56BB8004B746B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1027733825E56BB8004B746B /* Assets.xcassets */; };
 		1027733C25E56BB8004B746B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1027733A25E56BB8004B746B /* LaunchScreen.storyboard */; };
 		1027734725E56BB8004B746B /* KeyChainStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027734625E56BB8004B746B /* KeyChainStoreTests.swift */; };
@@ -18,6 +17,7 @@
 		1027736825E56CE1004B746B /* KeyChainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027736725E56CE1004B746B /* KeyChainStore.swift */; };
 		1027737225E56E19004B746B /* KeyChainStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027737125E56E19004B746B /* KeyChainStoreError.swift */; };
 		1027738325E574E1004B746B /* KeyChainStoreQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027738225E574E1004B746B /* KeyChainStoreQueryable.swift */; };
+		1027739625E57C94004B746B /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027739525E57C94004B746B /* UIView+Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,7 @@
 		1027732C25E56BB6004B746B /* Stockdo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stockdo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1027732F25E56BB6004B746B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1027733125E56BB6004B746B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1027733325E56BB6004B746B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1027733625E56BB6004B746B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1027733325E56BB6004B746B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		1027733825E56BB8004B746B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1027733B25E56BB8004B746B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1027733D25E56BB8004B746B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		1027736725E56CE1004B746B /* KeyChainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStore.swift; sourceTree = "<group>"; };
 		1027737125E56E19004B746B /* KeyChainStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStoreError.swift; sourceTree = "<group>"; };
 		1027738225E574E1004B746B /* KeyChainStoreQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStoreQueryable.swift; sourceTree = "<group>"; };
+		1027739525E57C94004B746B /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +105,9 @@
 		1027732E25E56BB6004B746B /* Stockdo */ = {
 			isa = PBXGroup;
 			children = (
-				1027732F25E56BB6004B746B /* AppDelegate.swift */,
-				1027733125E56BB6004B746B /* SceneDelegate.swift */,
-				1027733325E56BB6004B746B /* ViewController.swift */,
-				1027733525E56BB6004B746B /* Main.storyboard */,
+				1027739425E57C66004B746B /* Extensions */,
+				1027738725E575FC004B746B /* Application */,
+				1027733325E56BB6004B746B /* SettingViewController.swift */,
 				1027736525E56C8A004B746B /* Service */,
 				1027733825E56BB8004B746B /* Assets.xcassets */,
 				1027733A25E56BB8004B746B /* LaunchScreen.storyboard */,
@@ -151,6 +150,23 @@
 				1027738225E574E1004B746B /* KeyChainStoreQueryable.swift */,
 			);
 			path = KeyChainService;
+			sourceTree = "<group>";
+		};
+		1027738725E575FC004B746B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				1027732F25E56BB6004B746B /* AppDelegate.swift */,
+				1027733125E56BB6004B746B /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		1027739425E57C66004B746B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1027739525E57C94004B746B /* UIView+Constraints.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +274,6 @@
 			files = (
 				1027733C25E56BB8004B746B /* LaunchScreen.storyboard in Resources */,
 				1027733925E56BB8004B746B /* Assets.xcassets in Resources */,
-				1027733725E56BB6004B746B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,9 +298,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1027733425E56BB6004B746B /* ViewController.swift in Sources */,
+				1027733425E56BB6004B746B /* SettingViewController.swift in Sources */,
 				1027733025E56BB6004B746B /* AppDelegate.swift in Sources */,
 				1027738325E574E1004B746B /* KeyChainStoreQueryable.swift in Sources */,
+				1027739625E57C94004B746B /* UIView+Constraints.swift in Sources */,
 				1027737225E56E19004B746B /* KeyChainStoreError.swift in Sources */,
 				1027733225E56BB6004B746B /* SceneDelegate.swift in Sources */,
 				1027736825E56CE1004B746B /* KeyChainStore.swift in Sources */,
@@ -324,14 +340,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1027733525E56BB6004B746B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1027733625E56BB6004B746B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1027733A25E56BB8004B746B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
