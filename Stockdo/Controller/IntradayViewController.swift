@@ -24,7 +24,15 @@ class IntradayViewController: UIViewController {
         
         
         Service.fetchIntradayStock(hourFormatter) { intradays in
-            print(intradays)
+           
+            for intra in intradays {
+                self.hourFormatter.dateFormat = "HH:mm"
+                let date24 = self.hourFormatter.string(from: intra.date)
+                
+                print(date24)
+                
+            }
+            
             
         }
     }
