@@ -16,7 +16,7 @@ class SettingCell: UITableViewCell {
     }
     
     weak var delegate: SettingConfiguration?
-    private var usedTextField:UITextField?
+    private var usedTextField: UITextField = UITextField()
     
     
     private lazy var settingImage = UIImageView().with {
@@ -76,7 +76,6 @@ class SettingCell: UITableViewCell {
         addSubview(firstinputView)
         firstinputView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
         configureTextField()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -90,28 +89,23 @@ class SettingCell: UITableViewCell {
         self.titleLabel.text = viewModel.description
         self.settingImage.image = UIImage(systemName: viewModel.iconImages)
         self.setUpKeyboard(viewModel.keyboardType)
-        self.usedTextField?.text = viewModel.settingValue
-        
+        self.apiKeyTextfield.text = viewModel.settingValue
     }
     
     private func configureTextField() {
         apiKeyTextfield.delegate = self
         intervalTextfield.delegate = self
         outputSizeTextfield.delegate = self
-        
-        
     }
     
-    private func setUpKeyboard(_ tag: Int) {
+     private func setUpKeyboard(_ tag: Int) {
         switch tag {
         case 0:
             usedTextField = apiKeyTextfield
         case 1:
             usedTextField = intervalTextfield
-            usedTextField?.tag = 1
         case 2 :
             usedTextField = outputSizeTextfield
-            usedTextField?.tag = 2
         default:
             usedTextField = UITextField()
         }
