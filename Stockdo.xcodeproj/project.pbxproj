@@ -26,6 +26,7 @@
 		1046EAAF25E606250067199E /* SettingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EAAE25E606250067199E /* SettingHeader.swift */; };
 		1046EAD925E611840067199E /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EAD825E611840067199E /* SettingCell.swift */; };
 		1046EAE125E615670067199E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EAE025E615670067199E /* CustomTextField.swift */; };
+		1046EAE625E62EA70067199E /* SettingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EAE525E62EA70067199E /* SettingConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		1046EAAE25E606250067199E /* SettingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeader.swift; sourceTree = "<group>"; };
 		1046EAD825E611840067199E /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		1046EAE025E615670067199E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		1046EAE525E62EA70067199E /* SettingConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				1046EA8925E5EB360067199E /* JumpToController.swift */,
+				1046EAE525E62EA70067199E /* SettingConfiguration.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				1046EAA725E5FAEE0067199E /* SettingViewModel.swift in Sources */,
 				1027733225E56BB6004B746B /* SceneDelegate.swift in Sources */,
 				1046EA9B25E5EF3F0067199E /* DailyAdjustedViewController.swift in Sources */,
+				1046EAE625E62EA70067199E /* SettingConfiguration.swift in Sources */,
 				1046EA9625E5EF250067199E /* IntradayViewController.swift in Sources */,
 				1046EAAF25E606250067199E /* SettingHeader.swift in Sources */,
 				1027736825E56CE1004B746B /* KeyChainStore.swift in Sources */,

@@ -28,22 +28,22 @@ enum SettingViewModel:Int, CaseIterable {
     var iconImages: String {
         switch self {
         case .apiKey:
-            return "person.circle"
+            return "key.icloud"
         case .interval:
-            return "gear"
+            return "timer"
         case .outputSize:
-            return ""
+            return "doc.text"
         }
     }
     
-    var sectionPosition: Int {
+    var keyboardType: Int {
         switch self {
         case .apiKey:
             return 0
         case .interval:
             return 1
         case .outputSize:
-            return 1
+            return 2
         }
     }
     
