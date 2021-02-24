@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let initialVC = SettingViewController()
+        let initialVC = TabBarViewController()
         window?.rootViewController = initialVC
         window?.makeKeyAndVisible()
     }

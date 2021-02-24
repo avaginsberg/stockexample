@@ -41,7 +41,6 @@ class SettingViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Save", for: .normal)
         button.setTitleColor(.black, for: .normal)
-//        button.titleLabel?.font = R.font.sfProTextBold(size: 16)
         button.addTarget(self, action: #selector(savePressed), for: .touchUpInside)
         
         return button
