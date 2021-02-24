@@ -37,6 +37,9 @@
 		1046EB1C25E68FA00067199E /* IntradayStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EB1B25E68FA00067199E /* IntradayStock.swift */; };
 		1046EB2425E6A4A70067199E /* DailyStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EB2325E6A4A70067199E /* DailyStock.swift */; };
 		1046EB2E25E6AB010067199E /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EB2D25E6AB010067199E /* Services.swift */; };
+		1046EB3325E6AFF20067199E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EB3225E6AFF20067199E /* String+Extension.swift */; };
+		1046EB3825E6B4390067199E /* Intraday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EB3725E6B4390067199E /* Intraday.swift */; };
+		1046EB3D25E6B45B0067199E /* DailyAdjusted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EB3C25E6B45B0067199E /* DailyAdjusted.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,9 @@
 		1046EB1B25E68FA00067199E /* IntradayStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayStock.swift; sourceTree = "<group>"; };
 		1046EB2325E6A4A70067199E /* DailyStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStock.swift; sourceTree = "<group>"; };
 		1046EB2D25E6AB010067199E /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		1046EB3225E6AFF20067199E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		1046EB3725E6B4390067199E /* Intraday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intraday.swift; sourceTree = "<group>"; };
+		1046EB3C25E6B45B0067199E /* DailyAdjusted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjusted.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				1027739525E57C94004B746B /* UIView+Constraints.swift */,
+				1046EB3225E6AFF20067199E /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -268,6 +275,8 @@
 			isa = PBXGroup;
 			children = (
 				1046EB0025E63BD30067199E /* AppData.swift */,
+				1046EB3725E6B4390067199E /* Intraday.swift */,
+				1046EB3C25E6B45B0067199E /* DailyAdjusted.swift */,
 				1046EB2825E6AADA0067199E /* APIModel */,
 			);
 			path = Model;
@@ -437,12 +446,15 @@
 				1046EA9B25E5EF3F0067199E /* DailyAdjustedViewController.swift in Sources */,
 				1046EAE625E62EA70067199E /* SettingConfiguration.swift in Sources */,
 				1046EA9625E5EF250067199E /* IntradayViewController.swift in Sources */,
+				1046EB3D25E6B45B0067199E /* DailyAdjusted.swift in Sources */,
 				1046EAAF25E606250067199E /* SettingHeader.swift in Sources */,
+				1046EB3325E6AFF20067199E /* String+Extension.swift in Sources */,
 				1046EB1C25E68FA00067199E /* IntradayStock.swift in Sources */,
 				1046EB2425E6A4A70067199E /* DailyStock.swift in Sources */,
 				1027736825E56CE1004B746B /* KeyChainStore.swift in Sources */,
 				1046EAFB25E63AEF0067199E /* InteractiveModalPresentationController.swift in Sources */,
 				1046EAE125E615670067199E /* CustomTextField.swift in Sources */,
+				1046EB3825E6B4390067199E /* Intraday.swift in Sources */,
 				1046EB0125E63BD30067199E /* AppData.swift in Sources */,
 				1046EB0925E63C010067199E /* Defaults.swift in Sources */,
 			);

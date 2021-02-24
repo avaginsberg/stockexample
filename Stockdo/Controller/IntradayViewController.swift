@@ -10,7 +10,10 @@ import UIKit
 class IntradayViewController: UIViewController {
    
     //MARK: - Properties
-    
+    private lazy var hourFormatter = DateFormatter().with {
+        $0.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        $0.locale = Locale(identifier: "en_US_POSIX")
+    }
  
     
     //MARK: - LifeCycle
@@ -19,6 +22,11 @@ class IntradayViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .red
         
+        
+        Service.fetchIntradayStock(hourFormatter) { intradays in
+            print(intradays)
+            
+        }
     }
     
    

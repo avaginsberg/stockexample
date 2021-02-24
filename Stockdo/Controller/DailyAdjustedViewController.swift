@@ -10,7 +10,10 @@ import UIKit
 class DailyAdjustedViewController: UIViewController {
    
     //MARK: - Properties
-    
+    private lazy var dailyFormatter = DateFormatter().with {
+        $0.dateFormat = "yyyy-MM-dd"
+        $0.locale = Locale(identifier: "en_US_POSIX")
+    }
  
     
     //MARK: - LifeCycle
@@ -19,6 +22,11 @@ class DailyAdjustedViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .blue
         
+        
+        Service.fetchDailyStock(dailyFormatter) { dailyStocks in
+            print(dailyStocks)
+            
+        }
     }
     
   
