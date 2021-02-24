@@ -20,6 +20,9 @@ struct AppData {
     @Defaults(key: "services", defaultValue: "APIService")
     static var services: String
     
+    @Defaults(key: "accounts", defaultValue: "DefAccount")
+    static var accounts: String
+    
 }
 
 

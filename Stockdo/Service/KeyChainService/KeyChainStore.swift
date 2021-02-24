@@ -11,6 +11,8 @@ import Security
  struct KeyChainStore {
   private let keyChainStoreQueryable: KeyChainStoreQueryable
     
+    static let APIServices = KeyChainStore(keyChainStoreQueryable: GenericPasswordQueryable(service: AppData.services))
+    
    init(keyChainStoreQueryable: KeyChainStoreQueryable) {
     self.keyChainStoreQueryable = keyChainStoreQueryable
   }

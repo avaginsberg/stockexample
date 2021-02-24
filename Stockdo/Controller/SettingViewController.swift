@@ -11,13 +11,6 @@ class SettingViewController: UIViewController {
    
     //MARK: - Properties
     private var modalTransitioningDelegate: InteractiveModalTransitioningDelegate!
-    private var keyChainStore: KeyChainStore!
-    
-    var userAccount: GenericPasswordQueryable? {
-        didSet {
-            populateData(userAccount!)
-        }
-    }
     
     private let tableView = UITableView(frame: .zero, style: .grouped).with {
         $0.register(SettingCell.self, forCellReuseIdentifier: SettingCell.reuseIdentifier)
@@ -29,7 +22,6 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .green
         
-        userAccount = GenericPasswordQueryable(service: AppData.services)
         configureTable()
         
     }
@@ -45,11 +37,6 @@ class SettingViewController: UIViewController {
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
-    }
-    
-        
-    private func populateData(_ account: GenericPasswordQueryable) {
-        keyChainStore = KeyChainStore(keyChainStoreQueryable: account)
     }
     
 }
@@ -114,10 +101,11 @@ extension SettingViewController: SettingConfiguration {
     
     func saveIntoKeyChain(_ value: String) {
         do {
-            try keyChainStore.setValue(value, for: "123")
+            try KeyChainStore.APIServices.setValue(value, for: AppData.accounts)
         } catch {
             print(error)
         }
+        tableView.reloadData()
     }
     func saveToUserDefault(value: String, key:String) {
         switch key {
@@ -129,7 +117,7 @@ extension SettingViewController: SettingConfiguration {
             return
         }
         
-        
+        tableView.reloadData()
     }
     
 }
