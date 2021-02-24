@@ -24,7 +24,7 @@ class SettingCell: UITableViewCell {
         imageView.tintColor = .black
         imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+
         
         return imageView
     }()
@@ -41,14 +41,14 @@ class SettingCell: UITableViewCell {
     private lazy var apiKeyTextfield: UITextField = {
         let txtfield = UITextField()
         txtfield.textColor = .black
-        txtfield.font = .systemFont(ofSize: 16, weight: .semibold)
+        txtfield.font = .systemFont(ofSize: 14, weight: .semibold)
         txtfield.textAlignment = .right
         return txtfield
     }()
     private lazy var intervalTextfield: CustomTextfield = {
         let txtfield = CustomTextfield(placeholder: "5min")
         txtfield.textColor = .black
-        txtfield.font = .systemFont(ofSize: 16, weight: .semibold)
+        txtfield.font = .systemFont(ofSize: 14, weight: .semibold)
         txtfield.keyboardType = .decimalPad
         txtfield.textAlignment = .right
         return txtfield
@@ -56,7 +56,7 @@ class SettingCell: UITableViewCell {
     private lazy var outputSizeTextfield: CustomTextfield = {
         let txtfield = CustomTextfield(placeholder: "compact")
         txtfield.textColor = .black
-        txtfield.font = .systemFont(ofSize: 16, weight: .semibold)
+        txtfield.font = .systemFont(ofSize: 14, weight: .semibold)
         txtfield.textAlignment = .right
         return txtfield
     }()
@@ -64,7 +64,6 @@ class SettingCell: UITableViewCell {
     
     private lazy var firstinputView: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .red
         
         view.addSubview(settingImage)

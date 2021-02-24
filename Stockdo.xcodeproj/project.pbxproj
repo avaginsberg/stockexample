@@ -27,6 +27,13 @@
 		1046EAD925E611840067199E /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EAD825E611840067199E /* SettingCell.swift */; };
 		1046EAE125E615670067199E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EAE025E615670067199E /* CustomTextField.swift */; };
 		1046EAE625E62EA70067199E /* SettingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EAE525E62EA70067199E /* SettingConfiguration.swift */; };
+		1046EAEB25E638120067199E /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EAEA25E638120067199E /* Builder.swift */; };
+		1046EAF025E638400067199E /* IntervalPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EAEF25E638400067199E /* IntervalPickerView.swift */; };
+		1046EAF625E63ACA0067199E /* InteractiveModalTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EAF525E63ACA0067199E /* InteractiveModalTransitioningDelegate.swift */; };
+		1046EAFB25E63AEF0067199E /* InteractiveModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EAFA25E63AEF0067199E /* InteractiveModalPresentationController.swift */; };
+		1046EB0125E63BD30067199E /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EB0025E63BD30067199E /* AppData.swift */; };
+		1046EB0925E63C010067199E /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EB0825E63C010067199E /* Defaults.swift */; };
+		1046EB0E25E63D190067199E /* OutputSizePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EB0D25E63D190067199E /* OutputSizePickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +80,13 @@
 		1046EAD825E611840067199E /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		1046EAE025E615670067199E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		1046EAE525E62EA70067199E /* SettingConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingConfiguration.swift; sourceTree = "<group>"; };
+		1046EAEA25E638120067199E /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		1046EAEF25E638400067199E /* IntervalPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalPickerView.swift; sourceTree = "<group>"; };
+		1046EAF525E63ACA0067199E /* InteractiveModalTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveModalTransitioningDelegate.swift; sourceTree = "<group>"; };
+		1046EAFA25E63AEF0067199E /* InteractiveModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveModalPresentationController.swift; sourceTree = "<group>"; };
+		1046EB0025E63BD30067199E /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		1046EB0825E63C010067199E /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		1046EB0D25E63D190067199E /* OutputSizePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputSizePickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +137,7 @@
 		1027732E25E56BB6004B746B /* Stockdo */ = {
 			isa = PBXGroup;
 			children = (
+				1046EAFF25E63BC60067199E /* Model */,
 				1046EAD725E611710067199E /* View */,
 				1046EAA525E5FADE0067199E /* ViewModel */,
 				1027738725E575FC004B746B /* Application */,
@@ -130,6 +145,7 @@
 				1046EA9125E5EF0D0067199E /* Controller */,
 				1027736525E56C8A004B746B /* Service */,
 				1027739425E57C66004B746B /* Extensions */,
+				1046EAF425E63A9F0067199E /* Utility */,
 				1027733825E56BB8004B746B /* Assets.xcassets */,
 				1027733A25E56BB8004B746B /* LaunchScreen.storyboard */,
 				1027733D25E56BB8004B746B /* Info.plist */,
@@ -195,6 +211,7 @@
 			children = (
 				1046EA8925E5EB360067199E /* JumpToController.swift */,
 				1046EAE525E62EA70067199E /* SettingConfiguration.swift */,
+				1046EAEA25E638120067199E /* Builder.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -224,8 +241,28 @@
 			children = (
 				1046EAD825E611840067199E /* SettingCell.swift */,
 				1046EAE025E615670067199E /* CustomTextField.swift */,
+				1046EAEF25E638400067199E /* IntervalPickerView.swift */,
+				1046EB0D25E63D190067199E /* OutputSizePickerView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1046EAF425E63A9F0067199E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				1046EAF525E63ACA0067199E /* InteractiveModalTransitioningDelegate.swift */,
+				1046EAFA25E63AEF0067199E /* InteractiveModalPresentationController.swift */,
+				1046EB0825E63C010067199E /* Defaults.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		1046EAFF25E63BC60067199E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1046EB0025E63BD30067199E /* AppData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,21 +395,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				1046EA8425E5E9160067199E /* TabBarViewController.swift in Sources */,
+				1046EAF025E638400067199E /* IntervalPickerView.swift in Sources */,
 				1046EA8A25E5EB360067199E /* JumpToController.swift in Sources */,
 				1027733425E56BB6004B746B /* SettingViewController.swift in Sources */,
 				1027733025E56BB6004B746B /* AppDelegate.swift in Sources */,
 				1046EAD925E611840067199E /* SettingCell.swift in Sources */,
 				1027738325E574E1004B746B /* KeyChainStoreQueryable.swift in Sources */,
+				1046EB0E25E63D190067199E /* OutputSizePickerView.swift in Sources */,
 				1027739625E57C94004B746B /* UIView+Constraints.swift in Sources */,
+				1046EAEB25E638120067199E /* Builder.swift in Sources */,
 				1027737225E56E19004B746B /* KeyChainStoreError.swift in Sources */,
 				1046EAA725E5FAEE0067199E /* SettingViewModel.swift in Sources */,
 				1027733225E56BB6004B746B /* SceneDelegate.swift in Sources */,
+				1046EAF625E63ACA0067199E /* InteractiveModalTransitioningDelegate.swift in Sources */,
 				1046EA9B25E5EF3F0067199E /* DailyAdjustedViewController.swift in Sources */,
 				1046EAE625E62EA70067199E /* SettingConfiguration.swift in Sources */,
 				1046EA9625E5EF250067199E /* IntradayViewController.swift in Sources */,
 				1046EAAF25E606250067199E /* SettingHeader.swift in Sources */,
 				1027736825E56CE1004B746B /* KeyChainStore.swift in Sources */,
+				1046EAFB25E63AEF0067199E /* InteractiveModalPresentationController.swift in Sources */,
 				1046EAE125E615670067199E /* CustomTextField.swift in Sources */,
+				1046EB0125E63BD30067199E /* AppData.swift in Sources */,
+				1046EB0925E63C010067199E /* Defaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
