@@ -24,17 +24,17 @@ class TabBarViewController: UITabBarController {
     // MARK: - Helpers
     fileprivate func configureTabBar() {
         self.tabBar.clipsToBounds = false
-        self.tabBar.tintColor = .blue
+        self.tabBar.tintColor = .white
         self.tabBar.accessibilityIgnoresInvertColors = true
         self.tabBar.isTranslucent = true
-        self.tabBar.barTintColor = .white
+        self.tabBar.barTintColor = .black
     }
     
     fileprivate func configureViewControllers() {
         // Configure the tabBar viewControllers
         guard let intraday = UIImage(systemName: "note.text") else { return }
-        guard let dailyAdjusted = UIImage(systemName: "cloud.fill") else { return }
-        guard let setting = UIImage(systemName: "person.fill") else { return }
+        guard let dailyAdjusted = UIImage(systemName: "calendar") else { return }
+        guard let setting = UIImage(systemName: "gear") else { return }
         
         let intra = navigationControllerTemplate(
             tag: 0,
@@ -45,14 +45,14 @@ class TabBarViewController: UITabBarController {
         // Add button
         let daily = navigationControllerTemplate(
             tag: 1,
-            title: "DailyAdjusted",
+            title: "Daily Adjusted",
             tabBarIcon: dailyAdjusted,
             DailyAdjustedViewController()
         )
         
         let settings = navigationControllerTemplate(
             tag: 2,
-            title: "Setting",
+            title: "Settings",
             tabBarIcon: setting,
            SettingViewController()
         )

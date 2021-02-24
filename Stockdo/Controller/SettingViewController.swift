@@ -19,6 +19,13 @@ class SettingViewController: UIViewController {
         }
     }
     
+    private let tableView:UITableView = {
+        let table = UITableView(frame: .zero, style: .grouped)
+        table.register(SettingCell.self, forCellReuseIdentifier: SettingCell.reuseIdentifier)
+        
+        return table
+    }()
+    
     private let apiKeyTextField:UITextField = {
         let textfield = UITextField()
         textfield.textColor = .black
@@ -64,10 +71,24 @@ class SettingViewController: UIViewController {
         
         
         userAccount = GenericPasswordQueryable(service: "APIService")
-        configureUI()
+//        configureUI()
+        configureTable()
+        
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        tableView.frame = view.bounds
     }
     
     //MARK: - Helpers
+    
+    private func configureTable() {
+        view.addSubview(tableView)
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
     
     private func configureTextField() {
         apiKeyTextField.delegate = self
@@ -132,4 +153,39 @@ extension SettingViewController: UITextFieldDelegate {
 //    func textFieldDidEndEditing(_ textField: UITextField) {
 //
 //    }
+}
+
+
+extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return SettingHeader.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let header = SettingHeader(rawValue: section)
+        return header?.title
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let header = SettingHeader(rawValue: section) else { return 0 }
+        return header.sectionRow
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.section == 0 {
+           let model =  SettingViewModel(rawValue: indexPath.row)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.reuseIdentifier, for: indexPath) as? SettingCell else { fatalError("Could not create new cell") }
+            cell.viewModel = model
+            return cell
+        } else {
+            let model =  SettingViewModel(rawValue: indexPath.row + 1)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.reuseIdentifier, for: indexPath) as? SettingCell else { fatalError("Could not create new cell") }
+            cell.viewModel = model
+             return cell
+        }
+       
+    }
+    
+    
 }
