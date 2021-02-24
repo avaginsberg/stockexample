@@ -33,6 +33,7 @@ class SettingCell: UITableViewCell {
     
     private lazy var apiKeyTextfield = UITextField().with {
         $0.textColor = .black
+        $0.placeholder = "Enter Your API Key Here"
         $0.font = .systemFont(ofSize: 14, weight: .semibold)
         $0.textAlignment = .right
         
