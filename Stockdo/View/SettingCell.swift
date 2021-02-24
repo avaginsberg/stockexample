@@ -19,65 +19,51 @@ class SettingCell: UITableViewCell {
     private var usedTextField:UITextField?
     
     
-    private lazy var settingImage:UIImageView = {
-        let imageView = UIImageView()
-        imageView.tintColor = .black
-        imageView.contentMode = .scaleToFill
-        imageView.clipsToBounds = true
-
+    private lazy var settingImage = UIImageView().with {
+        $0.tintColor = .black
+        $0.contentMode = .scaleToFill
+        $0.clipsToBounds = true
+    }
+    
+    private var titleLabel = UILabel().with {
+        $0.font = .systemFont(ofSize: 14, weight: .medium)
+        $0.textColor = .black
+        $0.adjustsFontForContentSizeCategory = true
+    }
+    
+    private lazy var apiKeyTextfield = UITextField().with {
+        $0.textColor = .black
+        $0.font = .systemFont(ofSize: 14, weight: .semibold)
+        $0.textAlignment = .right
         
-        return imageView
-    }()
+    }
+    private lazy var intervalTextfield = CustomTextfield(placeholder: "5min").with {
+        $0.textColor = .black
+        $0.font = .systemFont(ofSize: 14, weight: .semibold)
+        $0.textAlignment = .right
+    }
+    private lazy var outputSizeTextfield = CustomTextfield(placeholder: "compact").with {
+        $0.textColor = .black
+        $0.font = .systemFont(ofSize: 14, weight: .semibold)
+        $0.textAlignment = .right
+    }
     
-    private var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .medium)
-        label.textColor = .black
-        label.adjustsFontForContentSizeCategory = true
+    
+    private lazy var firstinputView =  UIView().with {
+        $0.backgroundColor = .red
         
-        return label
-    }()
-    
-    private lazy var apiKeyTextfield: UITextField = {
-        let txtfield = UITextField()
-        txtfield.textColor = .black
-        txtfield.font = .systemFont(ofSize: 14, weight: .semibold)
-        txtfield.textAlignment = .right
-        return txtfield
-    }()
-    private lazy var intervalTextfield: CustomTextfield = {
-        let txtfield = CustomTextfield(placeholder: "5min")
-        txtfield.textColor = .black
-        txtfield.font = .systemFont(ofSize: 14, weight: .semibold)
-        txtfield.keyboardType = .decimalPad
-        txtfield.textAlignment = .right
-        return txtfield
-    }()
-    private lazy var outputSizeTextfield: CustomTextfield = {
-        let txtfield = CustomTextfield(placeholder: "compact")
-        txtfield.textColor = .black
-        txtfield.font = .systemFont(ofSize: 14, weight: .semibold)
-        txtfield.textAlignment = .right
-        return txtfield
-    }()
-    
-    
-    private lazy var firstinputView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        
-        view.addSubview(settingImage)
-        settingImage.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor,paddingTop: 3, paddingLeft: 10, paddingBottom: 3)
+        $0.addSubview(settingImage)
+        settingImage.anchor(top: $0.topAnchor, left: $0.leftAnchor, bottom: $0.bottomAnchor,paddingTop: 3, paddingLeft: 10, paddingBottom: 3)
         settingImage.setWidth(width: contentView.frame.size.height / 1.2)
         
-        view.addSubview(apiKeyTextfield)
-        apiKeyTextfield.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingRight: 10)
+        $0.addSubview(apiKeyTextfield)
+        apiKeyTextfield.anchor(top: $0.topAnchor, left: $0.leftAnchor, bottom: $0.bottomAnchor, right: $0.rightAnchor, paddingRight: 10)
         
-        view.addSubview(titleLabel)
+        $0.addSubview(titleLabel)
         titleLabel.centerY(inView: apiKeyTextfield)
         titleLabel.anchor(left: settingImage.rightAnchor, paddingLeft: 10)
-        return view
-    }()
+        
+    }
     
     // MARK: - Lifecycle
     
@@ -104,6 +90,7 @@ class SettingCell: UITableViewCell {
         self.titleLabel.text = viewModel.description
         self.settingImage.image = UIImage(systemName: viewModel.iconImages)
         self.setUpKeyboard(viewModel.keyboardType)
+        self.usedTextField?.text = viewModel.settingValue
         
     }
     

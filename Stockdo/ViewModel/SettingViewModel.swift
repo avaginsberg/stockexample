@@ -47,5 +47,26 @@ enum SettingViewModel:Int, CaseIterable {
         }
     }
     
+    var keyChainValue:String? {
+        let keychain = KeyChainStore(keyChainStoreQueryable: GenericPasswordQueryable(service: AppData.services))
+        do {
+            return try keychain.getValue(for: "123")
+        } catch {
+            print(error)
+        }
+        return nil
+    }
+    
+    var settingValue:String? {
+        switch self {
+        case .apiKey:
+            return keyChainValue
+        case .interval:
+            return AppData.intervalValue
+        case .outputSize:
+            return AppData.outputSizeValue
+        }
+    }
+    
 }
 

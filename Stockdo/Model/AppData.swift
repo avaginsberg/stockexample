@@ -17,6 +17,9 @@ struct AppData {
     @Defaults(key: "outputSizeValue", defaultValue: "compact")
     static var outputSizeValue: String
     
+    @Defaults(key: "services", defaultValue: "APIService")
+    static var services: String
+    
 }
 
 
