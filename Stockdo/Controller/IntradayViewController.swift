@@ -21,7 +21,7 @@ class IntradayViewController: UIViewController {
         
     }
     
-  
+   
    
 }
 
