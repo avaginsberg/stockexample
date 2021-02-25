@@ -26,32 +26,32 @@ class OutputSizePickerView: UIViewController {
     }
     
     private lazy var pickerContainerView = UIView().with {
-        $0.backgroundColor = .white
+        $0.backgroundColor = UIColor(named: "appColor2")
         $0.clipsToBounds = true
     }
     
     private lazy var headingContainerView = UIView().with {
-        $0.backgroundColor = .white
+        $0.backgroundColor = UIColor(named: "appColor3")
     }
     
     private lazy var doneButton = UIButton(type: .system).with {
         $0.setTitle("Select", for: .normal)
-        $0.setTitleColor(UIColor.systemBlue, for: .normal)
+        $0.setTitleColor(UIColor.white, for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         $0.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
     }
     
     private lazy var chevronButton = UIButton(type: .custom).with {
         $0.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-        $0.tintColor = .systemBlue
-        $0.backgroundColor = .white
+        $0.tintColor = .white
+        $0.backgroundColor = .clear
         $0.addTarget(self, action: #selector(actionDismiss), for: .touchUpInside)
     }
     
     private lazy var headingLabel = UILabel().with {
         $0.text = "Select Output Size"
         $0.font = .systemFont(ofSize: 16, weight: .bold)
-        $0.textColor = .black
+        $0.textColor = .white
         $0.textAlignment = .center
     }
     
@@ -200,7 +200,7 @@ extension OutputSizePickerView: UIPickerViewDelegate {
         label.text = outputSize[row]
         label.font = .systemFont(ofSize: 16, weight: .medium)
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = .white
         return label
     }
     

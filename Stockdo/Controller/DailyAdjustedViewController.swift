@@ -22,7 +22,7 @@ class DailyAdjustedViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .blue
         
-        
+        configureNavigationBar(withTitle: "Daily Adjusted", prefersLargeTitles: true)
         Service.fetchDailyStock(dailyFormatter) { dailyStocks in
             print(dailyStocks)
             
