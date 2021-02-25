@@ -30,7 +30,8 @@ class IntradayViewController: UIViewController {
     
     private let dateLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 18, weight: .bold)
-        $0.textColor = .black
+        $0.textColor = .white
+        $0.textAlignment = .center
         $0.text = "Date"
         $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
@@ -38,7 +39,8 @@ class IntradayViewController: UIViewController {
     
     private let openLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 18, weight: .bold)
-        $0.textColor = .black
+        $0.textColor = .white
+        $0.textAlignment = .center
         $0.text = "Open"
         $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
@@ -46,7 +48,8 @@ class IntradayViewController: UIViewController {
     
     private let lowLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 18, weight: .bold)
-        $0.textColor = .black
+        $0.textColor = .white
+        $0.textAlignment = .center
         $0.text = "Low"
         $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
@@ -54,26 +57,25 @@ class IntradayViewController: UIViewController {
     
     private let highLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 18, weight: .bold)
-        $0.textColor = .black
+        $0.textColor = .white
+        $0.textAlignment = .center
         $0.text = "High"
         $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
     }
     
-    private lazy var tableHeader = UIView(frame: .init(x: 0, y: 0, width: view.frame.width, height: 30)).with {
-            $0.backgroundColor = .yellow
-            
+    private lazy var tableHeader = UIView(frame: .init(x: 0, y: 0, width: view.frame.width, height: 45)).with {
             let stackview = UIStackView(arrangedSubviews: [dateLabel, openLabel, lowLabel, highLabel])
-            stackview.backgroundColor = .blue
             stackview.axis = .horizontal
             stackview.distribution = .equalCentering
             stackview.spacing = 5
             
             $0.addSubview(stackview)
-            stackview.anchor(top: $0.topAnchor, left: $0.leftAnchor, bottom: $0.bottomAnchor, right: $0.rightAnchor,paddingTop: 10, paddingLeft: 30, paddingRight: 30)
+            stackview.anchor(top: $0.topAnchor, left: $0.leftAnchor, bottom: $0.bottomAnchor, right: $0.rightAnchor,paddingTop: 5, paddingLeft: 30, paddingRight: 30)
     }
     
     private let tableView = UITableView().with {
+        $0.backgroundColor = UIColor(named: "appColor2")
         $0.tableFooterView = UIView()
         $0.register(IntradayCell.self, forCellReuseIdentifier: IntradayCell.reuseIdentifier)
     }
@@ -82,8 +84,6 @@ class IntradayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-        
         fetchStock(keyChain: keyChainValue)
         configureUI()
         configureTable()
@@ -121,8 +121,9 @@ class IntradayViewController: UIViewController {
         definesPresentationContext = false
         
         if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
-            textfield.textColor = .systemPurple
-            textfield.backgroundColor = .white
+            textfield.keyboardAppearance = .dark
+            textfield.textColor = .white
+            textfield.backgroundColor = UIColor(named: "appColor2")
             textfield.delegate = self
            
         }

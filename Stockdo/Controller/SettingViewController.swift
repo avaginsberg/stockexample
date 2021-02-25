@@ -13,6 +13,7 @@ class SettingViewController: UIViewController {
     private var modalTransitioningDelegate: InteractiveModalTransitioningDelegate!
     
     private let tableView = UITableView(frame: .zero, style: .grouped).with {
+        $0.backgroundColor = UIColor(named: "appColor2")
         $0.register(SettingCell.self, forCellReuseIdentifier: SettingCell.reuseIdentifier)
     }
     
@@ -20,10 +21,9 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
         
         configureTable()
-        
+        configureNavigationBar(withTitle: "User Settings", prefersLargeTitles: true)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

@@ -20,38 +20,38 @@ class SettingCell: UITableViewCell {
     
     
     private lazy var settingImage = UIImageView().with {
-        $0.tintColor = .black
+        $0.tintColor = .white
         $0.contentMode = .scaleToFill
         $0.clipsToBounds = true
     }
     
     private var titleLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 14, weight: .medium)
-        $0.textColor = .black
+        $0.textColor = .white
         $0.adjustsFontForContentSizeCategory = true
     }
     
     private lazy var apiKeyTextfield = UITextField().with {
-        $0.textColor = .black
+        $0.textColor = .white
         $0.placeholder = "Enter Your API Key Here"
         $0.font = .systemFont(ofSize: 14, weight: .semibold)
         $0.textAlignment = .right
         
     }
     private lazy var intervalTextfield = CustomTextfield(placeholder: "5min").with {
-        $0.textColor = .black
+        $0.textColor = .white
         $0.font = .systemFont(ofSize: 14, weight: .semibold)
         $0.textAlignment = .right
     }
     private lazy var outputSizeTextfield = CustomTextfield(placeholder: "compact").with {
-        $0.textColor = .black
+        $0.textColor = .white
         $0.font = .systemFont(ofSize: 14, weight: .semibold)
         $0.textAlignment = .right
     }
     
     
     private lazy var firstinputView =  UIView().with {
-        $0.backgroundColor = .red
+        $0.backgroundColor = UIColor(named: "appColor1")
         
         $0.addSubview(settingImage)
         settingImage.anchor(top: $0.topAnchor, left: $0.leftAnchor, bottom: $0.bottomAnchor,paddingTop: 3, paddingLeft: 10, paddingBottom: 3)

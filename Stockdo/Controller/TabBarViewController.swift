@@ -26,8 +26,8 @@ class TabBarViewController: UITabBarController {
         self.tabBar.clipsToBounds = false
         self.tabBar.tintColor = .white
         self.tabBar.accessibilityIgnoresInvertColors = true
-        self.tabBar.isTranslucent = true
-        self.tabBar.barTintColor = .black
+        self.tabBar.isTranslucent = false
+        self.tabBar.barTintColor = UIColor(named: "appColor3")
     }
     
     fileprivate func configureViewControllers() {

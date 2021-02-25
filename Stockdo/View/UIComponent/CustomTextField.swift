@@ -22,7 +22,7 @@ class CustomTextfield: UITextField {
         placeholder = text
         borderStyle = .none
         textColor = .black
-        keyboardAppearance = .light
+        keyboardAppearance = .dark
         attributedPlaceholder = NSAttributedString(string: text, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         autocapitalizationType = .none
         autocorrectionType = .no

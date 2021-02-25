@@ -18,6 +18,7 @@ class IntradayCell: UITableViewCell {
     private lazy var dateLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 13, weight: .semibold)
         $0.textColor = .black
+        $0.textAlignment = .center
         $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
     }
@@ -25,6 +26,7 @@ class IntradayCell: UITableViewCell {
     private lazy var openLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = .black
+        $0.textAlignment = .center
         $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
     }
@@ -32,6 +34,7 @@ class IntradayCell: UITableViewCell {
     private lazy var highLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = .black
+        $0.textAlignment = .center
         $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
     }
@@ -39,15 +42,16 @@ class IntradayCell: UITableViewCell {
     private lazy var lowLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = .black
+        $0.textAlignment = .center
         $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
     }
     
     private lazy var contentDisplay = UIView().with {
-        $0.backgroundColor = .yellow
+        $0.backgroundColor = UIColor(named: "appColor2")
         
         let stackview = UIStackView(arrangedSubviews: [dateLabel, openLabel, lowLabel, highLabel])
-        stackview.backgroundColor = .blue
+        stackview.backgroundColor =  UIColor(named: "appColor1")
         stackview.axis = .horizontal
         stackview.distribution = .equalCentering
         stackview.spacing = 5
