@@ -14,7 +14,7 @@ struct AppData {
     @Defaults(key: "intervalValue", defaultValue: "5min")
     static var intervalValue: String
     
-    @Defaults(key: "outputSizeValue", defaultValue: "compact")
+    @Defaults(key: "outputSizeValue", defaultValue: "full")
     static var outputSizeValue: String
     
     @Defaults(key: "services", defaultValue: "APIService")

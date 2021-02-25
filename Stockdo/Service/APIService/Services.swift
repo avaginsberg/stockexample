@@ -9,9 +9,12 @@ import Foundation
 
 struct Service {
     
-    static func fetchIntradayStock(_ dateFormatter: DateFormatter,completion: @escaping([Intraday]) -> Void) {
+    static func fetchIntradayStock(_ apiKey: String?, _ symbol: String?,_ dateFormatter: DateFormatter,completion: @escaping([Intraday]) -> Void) {
+        let defaultSymbol = symbol ?? "IBM"
+        let defaultKey = apiKey ?? "demo"
+        
         var intradayStocks = [Intraday]()
-        guard let stocksURL = URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=5min&apikey=demo") else {
+        guard let stocksURL = URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=\(defaultSymbol)&interval=\(AppData.intervalValue)&outputsize=\(AppData.outputSizeValue)&apikey=\(defaultKey)") else {
             fatalError("URL is not defined")
         }
         URLSession.shared.dataTask(with: stocksURL) { (data, response, error) in

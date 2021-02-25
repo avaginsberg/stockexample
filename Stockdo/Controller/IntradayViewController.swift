@@ -12,6 +12,16 @@ class IntradayViewController: UIViewController {
     //MARK: - Properties
     private var intradayStock = [Intraday]()
     private var modalTransitioningDelegate: InteractiveModalTransitioningDelegate!
+    private let searchController = UISearchController(searchResultsController: nil)
+    
+    var keyChainValue:String? {
+        do {
+            return try KeyChainStore.APIServices.getValue(for: AppData.accounts)
+        } catch {
+            print(error)
+        }
+        return nil
+    }
     
     private lazy var hourFormatter = DateFormatter().with {
         $0.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -33,19 +43,13 @@ class IntradayViewController: UIViewController {
         fetchStock()
         configureUI()
         configureTable()
+        configureNavigationBar(withTitle: "Intraday", prefersLargeTitles: true)
+        configureSearchController()
     }
     
    //MARK: - Helpers
-    private func fetchStock() {
-        Service.fetchIntradayStock(hourFormatter) { intradays in
-           
-//            for intra in intradays {
-//                self.hourFormatter.dateFormat = "HH:mm"
-//                let date24 = self.hourFormatter.string(from: intra.date)
-//
-//                print(date24)
-//
-//            }
+    private func fetchStock(keyChain:String? = nil, symbol:String? = nil) {
+        Service.fetchIntradayStock(keyChain, symbol, hourFormatter) { intradays in
             self.intradayStock = intradays
             self.sortStock(key: AppData.sortBy)
             DispatchQueue.main.async {
@@ -54,9 +58,6 @@ class IntradayViewController: UIViewController {
         }
     }
     private func configureUI() {
-        let image = UIImage(named: "funnel")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(goToSortPicker))
-       
         view.addSubview(tableView)
         tableView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
     }
@@ -64,6 +65,24 @@ class IntradayViewController: UIViewController {
     private func configureTable() {
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func configureSearchController() {
+        searchController.searchBar.showsCancelButton = false
+        navigationItem.searchController = searchController
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Enter Symbol"
+        definesPresentationContext = false
+        
+        if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.textColor = .systemPurple
+            textfield.backgroundColor = .white
+            textfield.delegate = self
+           
+        }
+        let image = UIImage(named: "funnel")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(goToSortPicker))
     }
     
     private func sortStock(key: String) {
@@ -137,6 +156,56 @@ extension IntradayViewController: SettingConfiguration {
             AppData.sortBy = value
             sortStock(key: value)
             self.tableView.reloadData()
+        }
+    }
+}
+
+extension IntradayViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = ""
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.endEditing(true)
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        
+        if textField.text != "" {
+            return true
+            
+        } else {
+            textField.placeholder = "Type something here"
+            return false
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let safeText = textField.text {
+            self.fetchStock(keyChain: keyChainValue,symbol: safeText)
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+            let newText = (textField.text! as NSString).replacingCharacters(in: range, with: string) as String
+            return checkLimitValue(key: newText, upperLimit: 12)
+    }
+    
+    func checkLimitValue(key: String, upperLimit: Int) -> Bool {
+        if key == "" {
+            return true
+        } else {
+            if key.count <= upperLimit {
+                
+                return true
+            } else {
+                
+                return false
+            }
         }
     }
 }
