@@ -5,7 +5,7 @@
 //  Created by Dayton on 25/02/21.
 //
 
-import Foundation
+import UIKit
 
 struct IntradayViewModel {
     let intraday: Intraday
@@ -35,4 +35,26 @@ struct IntradayViewModel {
         return String(format: "%.2f", intraday.high)
     }
     
+    var openColor:UIColor {
+        return UIColor.yellow
+    }
+    var dateColor:UIColor {
+        return UIColor.white
+    }
+    
+    var lowColor:UIColor {
+        if intraday.open > intraday.low {
+            return UIColor.red
+        } else {
+            return UIColor.yellow
+        }
+    }
+
+    var highColor:UIColor {
+        if intraday.open < intraday.high {
+            return UIColor.green
+        } else {
+            return UIColor.yellow
+        }
+    }
 }

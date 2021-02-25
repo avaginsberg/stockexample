@@ -29,7 +29,7 @@ class IntradayViewController: UIViewController {
     }
     
     private let dateLabel = UILabel().with {
-        $0.font = .systemFont(ofSize: 16, weight: .bold)
+        $0.font = .systemFont(ofSize: 18, weight: .bold)
         $0.textColor = .black
         $0.text = "Date"
         $0.numberOfLines = 0
@@ -37,7 +37,7 @@ class IntradayViewController: UIViewController {
     }
     
     private let openLabel = UILabel().with {
-        $0.font = .systemFont(ofSize: 16, weight: .bold)
+        $0.font = .systemFont(ofSize: 18, weight: .bold)
         $0.textColor = .black
         $0.text = "Open"
         $0.numberOfLines = 0
@@ -45,7 +45,7 @@ class IntradayViewController: UIViewController {
     }
     
     private let lowLabel = UILabel().with {
-        $0.font = .systemFont(ofSize: 16, weight: .bold)
+        $0.font = .systemFont(ofSize: 18, weight: .bold)
         $0.textColor = .black
         $0.text = "Low"
         $0.numberOfLines = 0
@@ -53,7 +53,7 @@ class IntradayViewController: UIViewController {
     }
     
     private let highLabel = UILabel().with {
-        $0.font = .systemFont(ofSize: 16, weight: .bold)
+        $0.font = .systemFont(ofSize: 18, weight: .bold)
         $0.textColor = .black
         $0.text = "High"
         $0.numberOfLines = 0
@@ -229,8 +229,12 @@ extension IntradayViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let safeText = textField.text {
+        if let safeText = textField.text?.uppercased() {
             self.fetchStock(keyChain: keyChainValue,symbol: safeText)
+            searchController.dismiss(animated: true) {
+                textField.text = safeText
+                self.title = safeText
+            }
         }
     }
     

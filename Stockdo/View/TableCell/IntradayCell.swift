@@ -87,6 +87,11 @@ class IntradayCell: UITableViewCell {
         lowLabel.text = viewModel.formattedLow
         highLabel.text = viewModel.formattedHigh
         
+        dateLabel.textColor = viewModel.dateColor
+        openLabel.textColor = viewModel.openColor
+        lowLabel.textColor = viewModel.lowColor
+        highLabel.textColor = viewModel.highColor
+        
     }
     
    
