@@ -42,7 +42,6 @@ class IntradayCell: UITableViewCell {
     private lazy var contentDisplay = UIView().with {
         $0.backgroundColor = .yellow
         
-        
         let stackview = UIStackView(arrangedSubviews: [dateLabel, openLabel, lowLabel, highLabel])
         stackview.axis = .horizontal
         stackview.distribution = .equalSpacing
@@ -50,21 +49,6 @@ class IntradayCell: UITableViewCell {
         
         $0.addSubview(stackview)
         stackview.anchor(top: $0.topAnchor, left: $0.leftAnchor, bottom: $0.bottomAnchor, right: $0.rightAnchor)
-        
-//        $0.addSubview(dateLabel)
-//        dateLabel.anchor(top: $0.topAnchor, left: $0.leftAnchor, bottom: $0.bottomAnchor)
-//        dateLabel.setWidth(width: 20)
-//
-//        $0.addSubview(highLabel)
-//        highLabel.anchor(top: $0.topAnchor, bottom: $0.bottomAnchor, right: $0.leftAnchor)
-//        highLabel.setWidth(width: 20)
-//
-//        $0.addSubview(openLabel)
-//        openLabel.anchor(top: $0.topAnchor, left: dateLabel.rightAnchor, bottom: $0.bottomAnchor)
-//        openLabel.setWidth(width: 20)
-//
-//        $0.addSubview(lowLabel)
-//        lowLabel.anchor(top: $0.topAnchor, left: openLabel.rightAnchor, bottom: $0.bottomAnchor, right: highLabel.leftAnchor)
     }
     
     

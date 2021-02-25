@@ -47,9 +47,9 @@ class IntradayViewController: UIViewController {
 //
 //            }
             self.intradayStock = intradays
+            self.sortStock(key: AppData.sortBy)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                print(self.intradayStock)
             }
         }
     }
@@ -64,6 +64,40 @@ class IntradayViewController: UIViewController {
     private func configureTable() {
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    private func sortStock(key: String) {
+        switch key {
+        case "date":
+            dateSort()
+        case "open":
+            openSort()
+        case "low":
+            lowSort()
+        case "high":
+            highSort()
+        default:
+            return
+        }
+    }
+    
+    private func dateSort() {
+        self.intradayStock = intradayStock.sorted{$0.date > $1.date}
+        
+    }
+    private func openSort() {
+        self.intradayStock = intradayStock.sorted{$0.open > $1.open}
+       
+    }
+    
+    private func lowSort() {
+        self.intradayStock = intradayStock.sorted{$0.low > $1.low}
+      
+    }
+    
+    private func highSort() {
+        self.intradayStock = intradayStock.sorted{$0.high > $1.high}
+        
     }
     
     //MARK: - Selectors
@@ -101,6 +135,8 @@ extension IntradayViewController: SettingConfiguration {
     func saveToUserDefault(value:String, key: String) {
         if key == "sortBy" {
             AppData.sortBy = value
+            sortStock(key: value)
+            self.tableView.reloadData()
         }
     }
 }
