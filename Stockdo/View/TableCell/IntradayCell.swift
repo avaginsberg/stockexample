@@ -18,24 +18,28 @@ class IntradayCell: UITableViewCell {
     private lazy var dateLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 13, weight: .semibold)
         $0.textColor = .black
+        $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
     }
     
     private lazy var openLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = .black
+        $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
     }
     
     private lazy var highLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = .black
+        $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
     }
     
     private lazy var lowLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = .black
+        $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
     }
     
@@ -43,12 +47,13 @@ class IntradayCell: UITableViewCell {
         $0.backgroundColor = .yellow
         
         let stackview = UIStackView(arrangedSubviews: [dateLabel, openLabel, lowLabel, highLabel])
+        stackview.backgroundColor = .blue
         stackview.axis = .horizontal
-        stackview.distribution = .equalSpacing
-        stackview.spacing = 10
+        stackview.distribution = .equalCentering
+        stackview.spacing = 5
         
         $0.addSubview(stackview)
-        stackview.anchor(top: $0.topAnchor, left: $0.leftAnchor, bottom: $0.bottomAnchor, right: $0.rightAnchor)
+        stackview.anchor(top: $0.topAnchor, left: $0.leftAnchor, bottom: $0.bottomAnchor, right: $0.rightAnchor, paddingLeft: 30, paddingRight: 30)
     }
     
     
@@ -57,7 +62,7 @@ class IntradayCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.setHeight(height: 35)
+        contentView.setHeight(height: 55)
         selectionStyle = .none
         
      

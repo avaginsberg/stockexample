@@ -142,8 +142,8 @@
             filePath = "Stockdo/Controller/IntradayViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "textFieldDidEndEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -151,65 +151,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6B537260-4390-4AB3-B372-1814CF7474A0"
+            uuid = "E64AABEA-9CC4-4B6A-937E-6C3C20CF2F7A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Stockdo/Controller/IntradayViewController.swift"
+            filePath = "Stockdo/View/TableCell/IntradayCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "fetchStock(keyChain:symbol:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6B537260-4390-4AB3-B372-1814CF7474A0 - 5f3e96b58d9c3fcd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Stockdo.IntradayViewController.(fetchStock in _0476C0A7B5E1D22193BBBE979CE8C4E5)(keyChain: Swift.Optional&lt;Swift.String&gt;, symbol: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Stockdo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dayton/Desktop/Github%20iOS%20Backup/Stockdo/Stockdo/Controller/IntradayViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "67">
-               </Location>
-               <Location
-                  uuid = "6B537260-4390-4AB3-B372-1814CF7474A0 - a5c2ad0ffb02a650"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;Stockdo.Intraday&gt;) -&gt; () in Stockdo.IntradayViewController.(fetchStock in _0476C0A7B5E1D22193BBBE979CE8C4E5)(keyChain: Swift.Optional&lt;Swift.String&gt;, symbol: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Stockdo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dayton/Desktop/Github%20iOS%20Backup/Stockdo/Stockdo/Controller/IntradayViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "154">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "69226B6C-D9EB-4DE4-9C80-76103B7B5D6F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Stockdo/Service/APIService/Services.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "fetchIntradayStock(_:_:_:completion:)"
-            landmarkType = "7">
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "contentDisplay"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -27,7 +27,52 @@ class IntradayViewController: UIViewController {
         $0.dateFormat = "yyyy-MM-dd HH:mm:ss"
         $0.locale = Locale(identifier: "en_US_POSIX")
     }
- 
+    
+    private let dateLabel = UILabel().with {
+        $0.font = .systemFont(ofSize: 16, weight: .bold)
+        $0.textColor = .black
+        $0.text = "Date"
+        $0.numberOfLines = 0
+        $0.adjustsFontForContentSizeCategory = true
+    }
+    
+    private let openLabel = UILabel().with {
+        $0.font = .systemFont(ofSize: 16, weight: .bold)
+        $0.textColor = .black
+        $0.text = "Open"
+        $0.numberOfLines = 0
+        $0.adjustsFontForContentSizeCategory = true
+    }
+    
+    private let lowLabel = UILabel().with {
+        $0.font = .systemFont(ofSize: 16, weight: .bold)
+        $0.textColor = .black
+        $0.text = "Low"
+        $0.numberOfLines = 0
+        $0.adjustsFontForContentSizeCategory = true
+    }
+    
+    private let highLabel = UILabel().with {
+        $0.font = .systemFont(ofSize: 16, weight: .bold)
+        $0.textColor = .black
+        $0.text = "High"
+        $0.numberOfLines = 0
+        $0.adjustsFontForContentSizeCategory = true
+    }
+    
+    private lazy var tableHeader = UIView(frame: .init(x: 0, y: 0, width: view.frame.width, height: 30)).with {
+            $0.backgroundColor = .yellow
+            
+            let stackview = UIStackView(arrangedSubviews: [dateLabel, openLabel, lowLabel, highLabel])
+            stackview.backgroundColor = .blue
+            stackview.axis = .horizontal
+            stackview.distribution = .equalCentering
+            stackview.spacing = 5
+            
+            $0.addSubview(stackview)
+            stackview.anchor(top: $0.topAnchor, left: $0.leftAnchor, bottom: $0.bottomAnchor, right: $0.rightAnchor,paddingTop: 10, paddingLeft: 30, paddingRight: 30)
+    }
+    
     private let tableView = UITableView().with {
         $0.tableFooterView = UIView()
         $0.register(IntradayCell.self, forCellReuseIdentifier: IntradayCell.reuseIdentifier)
@@ -38,7 +83,6 @@ class IntradayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
-        
         
         fetchStock(keyChain: keyChainValue)
         configureUI()
@@ -63,6 +107,7 @@ class IntradayViewController: UIViewController {
     }
     
     private func configureTable() {
+        tableView.tableHeaderView = tableHeader
         tableView.delegate = self
         tableView.dataSource = self
     }
