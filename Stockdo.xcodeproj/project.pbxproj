@@ -18,6 +18,8 @@
 		1027737225E56E19004B746B /* KeyChainStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027737125E56E19004B746B /* KeyChainStoreError.swift */; };
 		1027738325E574E1004B746B /* KeyChainStoreQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027738225E574E1004B746B /* KeyChainStoreQueryable.swift */; };
 		1027739625E57C94004B746B /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027739525E57C94004B746B /* UIView+Constraints.swift */; };
+		103BDA1F25E756CB004F390A /* IntradayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103BDA1E25E756CB004F390A /* IntradayCell.swift */; };
+		103BDA2425E75716004F390A /* IntradayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103BDA2325E75716004F390A /* IntradayViewModel.swift */; };
 		1046EA8425E5E9160067199E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EA8325E5E9160067199E /* TabBarViewController.swift */; };
 		1046EA8A25E5EB360067199E /* JumpToController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EA8925E5EB360067199E /* JumpToController.swift */; };
 		1046EA9625E5EF250067199E /* IntradayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EA9525E5EF250067199E /* IntradayViewController.swift */; };
@@ -77,6 +79,8 @@
 		1027737125E56E19004B746B /* KeyChainStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStoreError.swift; sourceTree = "<group>"; };
 		1027738225E574E1004B746B /* KeyChainStoreQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStoreQueryable.swift; sourceTree = "<group>"; };
 		1027739525E57C94004B746B /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		103BDA1E25E756CB004F390A /* IntradayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayCell.swift; sourceTree = "<group>"; };
+		103BDA2325E75716004F390A /* IntradayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewModel.swift; sourceTree = "<group>"; };
 		1046EA8325E5E9160067199E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1046EA8925E5EB360067199E /* JumpToController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpToController.swift; sourceTree = "<group>"; };
 		1046EA9525E5EF250067199E /* IntradayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +224,25 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		103BDA1325E756A5004F390A /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				1046EAD825E611840067199E /* SettingCell.swift */,
+				103BDA1E25E756CB004F390A /* IntradayCell.swift */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
+		103BDA1725E756B5004F390A /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				1046EAE025E615670067199E /* CustomTextField.swift */,
+				1046EAEF25E638400067199E /* IntervalPickerView.swift */,
+				1046EB0D25E63D190067199E /* OutputSizePickerView.swift */,
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
 		1046EA8825E5EB240067199E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +269,7 @@
 			children = (
 				1046EAA625E5FAEE0067199E /* SettingViewModel.swift */,
 				1046EAAE25E606250067199E /* SettingHeader.swift */,
+				103BDA2325E75716004F390A /* IntradayViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -253,10 +277,8 @@
 		1046EAD725E611710067199E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1046EAD825E611840067199E /* SettingCell.swift */,
-				1046EAE025E615670067199E /* CustomTextField.swift */,
-				1046EAEF25E638400067199E /* IntervalPickerView.swift */,
-				1046EB0D25E63D190067199E /* OutputSizePickerView.swift */,
+				103BDA1325E756A5004F390A /* TableCell */,
+				103BDA1725E756B5004F390A /* UIComponent */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -456,7 +478,9 @@
 				1046EAE125E615670067199E /* CustomTextField.swift in Sources */,
 				1046EB3825E6B4390067199E /* Intraday.swift in Sources */,
 				1046EB0125E63BD30067199E /* AppData.swift in Sources */,
+				103BDA2425E75716004F390A /* IntradayViewModel.swift in Sources */,
 				1046EB0925E63C010067199E /* Defaults.swift in Sources */,
+				103BDA1F25E756CB004F390A /* IntradayCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
