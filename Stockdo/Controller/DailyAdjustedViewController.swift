@@ -15,6 +15,22 @@ class DailyAdjustedViewController: UIViewController {
     private var thirdSymbolStock = [DailyAdjusted]()
     
     private let dailyAdjustedMain = DailyAdjustedMain.allCases
+    private let symbolAvailability = SymbolAvailability.allCases
+    
+    private var existNumber:Int {
+        get {
+            let arrays = [firstSymbolStock.count, secondSymbolStock.count, thirdSymbolStock.count]
+            var existNumber = 0
+            // if true
+            arrays.forEach { array in
+                if array != 0 {
+                    existNumber += 1
+                    
+                }
+            }
+            return existNumber
+        }
+    }
     
     private lazy var dailyFormatter = DateFormatter().with {
         $0.dateFormat = "yyyy-MM-dd"
@@ -89,8 +105,10 @@ class DailyAdjustedViewController: UIViewController {
         configureNavigationBar(withTitle: "Daily Adjusted", prefersLargeTitles: true)
         configureUI()
         configureTable()
-        fetchDailyStock(to: 0)
+        // start with no fetch
+//        fetchDailyStock(to: 0)
         configureTextField()
+        
     }
     
     //MARK: - Helpers
@@ -101,6 +119,7 @@ class DailyAdjustedViewController: UIViewController {
             
             self.setStockValue(on: dailyAdjusted, from: dailyStocks)
             DispatchQueue.main.async {
+                self.getAverageData()
                 self.firstSymbolTable.reloadData()
             }
         }
@@ -124,7 +143,57 @@ class DailyAdjustedViewController: UIViewController {
         thirdSymbolKeyboard.delegate = self
     }
     
-    func setStockValue(on destinationTarget: Int, from: [DailyAdjusted]) {
+    private func getAverageData() {
+        let maxValue = max(firstSymbolStock.count, secondSymbolStock.count, thirdSymbolStock.count)
+        let minValue = min(firstSymbolStock.count, secondSymbolStock.count, thirdSymbolStock.count)
+        
+        
+    }
+    
+    private func getNumberOfRow(to existNumber:Int) -> Int {
+        switch symbolAvailability[existNumber] {
+        case .oneValueExist:
+           return oneValueRow()
+        case .twoValueExist:
+           return twoValueRow()
+        case .threeValueExist:
+           return threeValueRow()
+        }
+    }
+    
+    private func oneValueRow() ->Int {
+        let arrays = [firstSymbolStock.count, secondSymbolStock.count, thirdSymbolStock.count]
+        // if true
+        var returnedInt = Int()
+        arrays.forEach { array in
+            if array != 0 {
+                returnedInt = array
+            }
+        }
+        return returnedInt
+    }
+    
+    private func twoValueRow() ->Int {
+        let arrays = [firstSymbolStock.count, secondSymbolStock.count, thirdSymbolStock.count]
+        // if true
+        var returnedInt = [Int]()
+        arrays.forEach { array in
+            if array != 0 {
+                returnedInt.append(array)
+            }
+        }
+        return min(returnedInt[0], returnedInt[1])
+    }
+    
+    private func threeValueRow() ->Int {
+        let arrays = [firstSymbolStock.count, secondSymbolStock.count, thirdSymbolStock.count]
+        // if true
+        let sortedArray = arrays.sorted() { $0 > $1}
+        
+        return sortedArray[1]
+    }
+    
+   private func setStockValue(on destinationTarget: Int, from: [DailyAdjusted]) {
         let dailyAdjustedKind = self.dailyAdjustedMain[destinationTarget]
         switch dailyAdjustedKind {
         case .firstSymbol:
@@ -140,16 +209,8 @@ class DailyAdjustedViewController: UIViewController {
 
 extension DailyAdjustedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        switch tableView {
-//        case firstSymbolTable:
-//            return firstSymbolStock.count
-//        case secondSymbolTable:
-//            return secondSymbolStock.count
-//        case thirdSymbolTable :
-//            return thirdSymbolStock.count
-//        default:
-            return 0
-//        }
+            return getNumberOfRow(to: existNumber)
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -202,11 +263,11 @@ extension DailyAdjustedViewController: UITextFieldDelegate {
 //            }
 //        }
         if textField == firstSymbolKeyboard {
-            
+            fetchDailyStock(to: 0)
         } else if textField == secondSymbolKeyboard {
-            
+            fetchDailyStock(to: 1)
         } else {
-            
+            fetchDailyStock(to: 2)
         }
         
     }

@@ -15,3 +15,11 @@ enum DailyAdjustedMain:String, CaseIterable {
     case thirdSymbol
     
 }
+
+enum SymbolAvailability:String, CaseIterable {
+    
+    case oneValueExist
+    case twoValueExist
+    case threeValueExist
+    
+}
