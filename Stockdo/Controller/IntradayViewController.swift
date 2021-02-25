@@ -18,6 +18,7 @@ class IntradayViewController: UIViewController {
     }
  
     private let tableView = UITableView().with {
+        $0.tableFooterView = UIView()
         $0.register(IntradayCell.self, forCellReuseIdentifier: IntradayCell.reuseIdentifier)
     }
     
@@ -29,6 +30,7 @@ class IntradayViewController: UIViewController {
         
         
         fetchStock()
+        configureUI()
         configureTable()
     }
     
@@ -50,6 +52,10 @@ class IntradayViewController: UIViewController {
             }
         }
     }
+    private func configureUI() {
+        view.addSubview(tableView)
+        tableView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+    }
     
     private func configureTable() {
         tableView.delegate = self
@@ -70,6 +76,7 @@ extension IntradayViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: IntradayCell.reuseIdentifier, for: indexPath) as? IntradayCell else { fatalError("Could not create new cell") }
         
+        cell.viewModel = IntradayViewModel(intraday: intradayStock[indexPath.row])
         return cell
     }
     
