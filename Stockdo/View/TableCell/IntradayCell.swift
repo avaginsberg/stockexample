@@ -73,7 +73,7 @@ class IntradayCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.setHeight(height: 30)
+        contentView.setHeight(height: 35)
         selectionStyle = .none
         
      

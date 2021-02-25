@@ -53,6 +53,9 @@ class IntradayViewController: UIViewController {
         }
     }
     private func configureUI() {
+        let image = UIImage(named: "funnel")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(sortStock))
+       
         view.addSubview(tableView)
         tableView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
     }
@@ -64,6 +67,9 @@ class IntradayViewController: UIViewController {
     
     //MARK: - Selectors
     
+    @objc func sortStock() {
+        
+    }
    
 }
 
