@@ -15,10 +15,6 @@ struct IntradayViewModel {
         $0.locale = Locale(identifier: "en_US_POSIX")
     }
     
-    init(intraday: Intraday) {
-        self.intraday = intraday
-    }
-    
     var getDisplayedDate:String {
          return displayFormatter.string(from: intraday.date)
     }

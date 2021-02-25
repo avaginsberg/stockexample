@@ -25,6 +25,7 @@
 		103BDA3B25E7FEED004F390A /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103BDA3A25E7FEED004F390A /* InputContainerView.swift */; };
 		103BDA4025E8057B004F390A /* DailyAdjustedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103BDA3F25E8057B004F390A /* DailyAdjustedCell.swift */; };
 		103BDA4525E805AB004F390A /* DailyAdjustedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103BDA4425E805AB004F390A /* DailyAdjustedViewModel.swift */; };
+		103BDA4A25E8222F004F390A /* DailyAdjustedMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103BDA4925E8222F004F390A /* DailyAdjustedMain.swift */; };
 		1046EA8425E5E9160067199E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EA8325E5E9160067199E /* TabBarViewController.swift */; };
 		1046EA8A25E5EB360067199E /* JumpToController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EA8925E5EB360067199E /* JumpToController.swift */; };
 		1046EA9625E5EF250067199E /* IntradayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EA9525E5EF250067199E /* IntradayViewController.swift */; };
@@ -91,6 +92,7 @@
 		103BDA3A25E7FEED004F390A /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		103BDA3F25E8057B004F390A /* DailyAdjustedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjustedCell.swift; sourceTree = "<group>"; };
 		103BDA4425E805AB004F390A /* DailyAdjustedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjustedViewModel.swift; sourceTree = "<group>"; };
+		103BDA4925E8222F004F390A /* DailyAdjustedMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjustedMain.swift; sourceTree = "<group>"; };
 		1046EA8325E5E9160067199E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1046EA8925E5EB360067199E /* JumpToController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpToController.swift; sourceTree = "<group>"; };
 		1046EA9525E5EF250067199E /* IntradayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewController.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				1046EAAE25E606250067199E /* SettingHeader.swift */,
 				103BDA2325E75716004F390A /* IntradayViewModel.swift */,
 				103BDA4425E805AB004F390A /* DailyAdjustedViewModel.swift */,
+				103BDA4925E8222F004F390A /* DailyAdjustedMain.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				1027739625E57C94004B746B /* UIView+Constraints.swift in Sources */,
 				1046EAEB25E638120067199E /* Builder.swift in Sources */,
 				1027737225E56E19004B746B /* KeyChainStoreError.swift in Sources */,
+				103BDA4A25E8222F004F390A /* DailyAdjustedMain.swift in Sources */,
 				1046EAA725E5FAEE0067199E /* SettingViewModel.swift in Sources */,
 				103BDA3B25E7FEED004F390A /* InputContainerView.swift in Sources */,
 				1027733225E56BB6004B746B /* SceneDelegate.swift in Sources */,
