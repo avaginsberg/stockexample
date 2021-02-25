@@ -12,3 +12,10 @@ protocol SettingConfiguration: class {
     func saveIntoKeyChain(_ value:String)
     func saveToUserDefault(value:String, key: String)
 }
+
+extension SettingConfiguration {
+    func goToIntervalPickerView() {}
+    func goToOutputPickerView() {}
+    func saveIntoKeyChain(_ value:String) {}
+    func saveToUserDefault(value:String, key: String) {}
+}

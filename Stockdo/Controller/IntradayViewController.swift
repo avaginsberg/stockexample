@@ -11,6 +11,7 @@ class IntradayViewController: UIViewController {
    
     //MARK: - Properties
     private var intradayStock = [Intraday]()
+    private var modalTransitioningDelegate: InteractiveModalTransitioningDelegate!
     
     private lazy var hourFormatter = DateFormatter().with {
         $0.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -54,7 +55,7 @@ class IntradayViewController: UIViewController {
     }
     private func configureUI() {
         let image = UIImage(named: "funnel")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(sortStock))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(goToSortPicker))
        
         view.addSubview(tableView)
         tableView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
@@ -67,8 +68,15 @@ class IntradayViewController: UIViewController {
     
     //MARK: - Selectors
     
-    @objc func sortStock() {
+    @objc func goToSortPicker() {
+        let controller = SortPickerView()
+        controller.modalPresentationStyle = .custom
+        modalTransitioningDelegate = InteractiveModalTransitioningDelegate(from: self, to: controller)
+        controller.transitioningDelegate = modalTransitioningDelegate
+        controller.selectedSortMethod = AppData.sortBy
+        controller.delegate = self
         
+        self.present(controller, animated: true, completion: nil)
     }
    
 }
@@ -87,4 +95,12 @@ extension IntradayViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     
+}
+
+extension IntradayViewController: SettingConfiguration {
+    func saveToUserDefault(value:String, key: String) {
+        if key == "sortBy" {
+            AppData.sortBy = value
+        }
+    }
 }

@@ -20,6 +20,7 @@
 		1027739625E57C94004B746B /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1027739525E57C94004B746B /* UIView+Constraints.swift */; };
 		103BDA1F25E756CB004F390A /* IntradayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103BDA1E25E756CB004F390A /* IntradayCell.swift */; };
 		103BDA2425E75716004F390A /* IntradayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103BDA2325E75716004F390A /* IntradayViewModel.swift */; };
+		103BDA2925E77C07004F390A /* SortPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103BDA2825E77C07004F390A /* SortPickerView.swift */; };
 		1046EA8425E5E9160067199E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EA8325E5E9160067199E /* TabBarViewController.swift */; };
 		1046EA8A25E5EB360067199E /* JumpToController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EA8925E5EB360067199E /* JumpToController.swift */; };
 		1046EA9625E5EF250067199E /* IntradayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046EA9525E5EF250067199E /* IntradayViewController.swift */; };
@@ -81,6 +82,7 @@
 		1027739525E57C94004B746B /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		103BDA1E25E756CB004F390A /* IntradayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayCell.swift; sourceTree = "<group>"; };
 		103BDA2325E75716004F390A /* IntradayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewModel.swift; sourceTree = "<group>"; };
+		103BDA2825E77C07004F390A /* SortPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortPickerView.swift; sourceTree = "<group>"; };
 		1046EA8325E5E9160067199E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1046EA8925E5EB360067199E /* JumpToController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpToController.swift; sourceTree = "<group>"; };
 		1046EA9525E5EF250067199E /* IntradayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				1046EAE025E615670067199E /* CustomTextField.swift */,
 				1046EAEF25E638400067199E /* IntervalPickerView.swift */,
 				1046EB0D25E63D190067199E /* OutputSizePickerView.swift */,
+				103BDA2825E77C07004F390A /* SortPickerView.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				1046EB2E25E6AB010067199E /* Services.swift in Sources */,
 				1046EAF625E63ACA0067199E /* InteractiveModalTransitioningDelegate.swift in Sources */,
 				1046EA9B25E5EF3F0067199E /* DailyAdjustedViewController.swift in Sources */,
+				103BDA2925E77C07004F390A /* SortPickerView.swift in Sources */,
 				1046EAE625E62EA70067199E /* SettingConfiguration.swift in Sources */,
 				1046EA9625E5EF250067199E /* IntradayViewController.swift in Sources */,
 				1046EB3D25E6B45B0067199E /* DailyAdjusted.swift in Sources */,

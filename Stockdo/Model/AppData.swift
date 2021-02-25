@@ -23,6 +23,9 @@ struct AppData {
     @Defaults(key: "accounts", defaultValue: "DefAccount")
     static var accounts: String
     
+    @Defaults(key: "sortBy", defaultValue: "date")
+    static var sortBy: String
+    
 }
 
 
