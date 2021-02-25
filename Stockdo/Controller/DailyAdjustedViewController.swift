@@ -21,35 +21,12 @@ class DailyAdjustedViewController: UIViewController {
         $0.locale = Locale(identifier: "en_US_POSIX")
     }
     private let firstSymbolTable = UITableView().with {
-        $0.backgroundColor = .red
-        $0.isScrollEnabled = false
-        $0.tableFooterView = UIView()
-        $0.register(DailyAdjustedCell.self, forCellReuseIdentifier: DailyAdjustedCell.reuseIdentifier)
-    }
-    
-    private let secondSymbolTable = UITableView().with {
-        $0.backgroundColor = .green
-        $0.isScrollEnabled = false
-        $0.tableFooterView = UIView()
-        $0.register(DailyAdjustedCell.self, forCellReuseIdentifier: DailyAdjustedCell.reuseIdentifier)
-    }
-    
-    private let thirdSymbolTable = UITableView().with {
-        $0.backgroundColor = .brown
-        $0.isScrollEnabled = false
-        $0.tableFooterView = UIView()
-        $0.register(DailyAdjustedCell.self, forCellReuseIdentifier: DailyAdjustedCell.reuseIdentifier)
-    }
-    private lazy var scrollView = UIScrollView()
+        $0.backgroundColor = UIColor(named: "appColor2")
         
-//        let stackview = UIStackView(arrangedSubviews: [firstSymbolTable, secondSymbolTable, thirdSymbolTable])
-//        stackview.axis = .horizontal
-//        stackview.distribution = .fillEqually
-//        stackview.spacing = 0
-//
-//        $0.addSubview(stackview)
-//        stackview.anchor(top: $0.topAnchor, left: $0.leftAnchor, bottom: $0.bottomAnchor, right: $0.rightAnchor)
-    
+        $0.tableFooterView = UIView()
+        $0.register(DailyAdjustedCell.self, forCellReuseIdentifier: DailyAdjustedCell.reuseIdentifier)
+    }
+
     private let firstSymbolLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 14, weight: .bold)
         $0.textColor = .white
@@ -97,11 +74,10 @@ class DailyAdjustedViewController: UIViewController {
     private lazy var secondContainerView = InputContainerView(label: secondSymbolLabel, textField: secondSymbolKeyboard).with { _ in }
     private lazy var thirdContainerView = InputContainerView(label: thirdSymbolLabel, textField: thirdSymbolKeyboard).with { _ in }
     
-    private lazy var displayInputView = UIView().with {
+    private lazy var displayInputView = UIView(frame: .init(x: 0, y: 0, width: view.frame.width, height: 170)).with {
         let stackview = UIStackView(arrangedSubviews: [firstContainerView, secondContainerView, thirdContainerView])
         stackview.axis = .vertical
         stackview.spacing = 16
-        
         $0.addSubview(stackview)
         stackview.anchor(top: $0.topAnchor, left: $0.leftAnchor, right: $0.rightAnchor,paddingTop: 15 ,paddingLeft: 20, paddingRight: 20)
     }
@@ -110,7 +86,6 @@ class DailyAdjustedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "appColor2")
         configureNavigationBar(withTitle: "Daily Adjusted", prefersLargeTitles: true)
         configureUI()
         configureTable()
@@ -126,40 +101,20 @@ class DailyAdjustedViewController: UIViewController {
             self.setStockValue(on: dailyAdjusted, from: dailyStocks)
             DispatchQueue.main.async {
                 self.firstSymbolTable.reloadData()
-                self.secondSymbolTable.reloadData()
-                self.thirdSymbolTable.reloadData()
             }
         }
     }
     
     private func configureUI() {
-        view.addSubview(displayInputView)
-        displayInputView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 170)
-        
-        
-        view.addSubview(scrollView)
-        scrollView.backgroundColor = .clear
-        scrollView.anchor(top: displayInputView.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
-        
-        let stackview = UIStackView(arrangedSubviews: [firstSymbolTable, secondSymbolTable, thirdSymbolTable])
-        stackview.axis = .horizontal
-        stackview.distribution = .fillEqually
-        stackview.spacing = 0
-
-        scrollView.addSubview(stackview)
-        stackview.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor, bottom: scrollView.bottomAnchor, right: scrollView.rightAnchor)
+       
+        view.addSubview(firstSymbolTable)
+        firstSymbolTable.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
     }
     
     private func configureTable() {
-//        tableView.tableHeaderView = displayInputView
+        firstSymbolTable.tableHeaderView = displayInputView
         firstSymbolTable.delegate = self
         firstSymbolTable.dataSource = self
-        
-        secondSymbolTable.delegate = self
-        secondSymbolTable.dataSource = self
-        
-        thirdSymbolTable.delegate = self
-        thirdSymbolTable.dataSource = self
     }
     
     func setStockValue(on destinationTarget: Int, from: [DailyAdjusted]) {
@@ -178,31 +133,31 @@ class DailyAdjustedViewController: UIViewController {
 
 extension DailyAdjustedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch tableView {
-        case firstSymbolTable:
-            return firstSymbolStock.count
-        case secondSymbolTable:
-            return secondSymbolStock.count
-        case thirdSymbolTable :
-            return thirdSymbolStock.count
-        default:
+//        switch tableView {
+//        case firstSymbolTable:
+//            return firstSymbolStock.count
+//        case secondSymbolTable:
+//            return secondSymbolStock.count
+//        case thirdSymbolTable :
+//            return thirdSymbolStock.count
+//        default:
             return 0
-        }
+//        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DailyAdjustedCell.reuseIdentifier, for: indexPath) as? DailyAdjustedCell else { fatalError("Could not create new cell") }
         
-        switch tableView {
-        case firstSymbolTable:
-            cell.viewModel = DailyAdjustedViewModel(dailyAdjusted: firstSymbolStock[indexPath.row])
-        case secondSymbolTable:
-            cell.viewModel = DailyAdjustedViewModel(dailyAdjusted: secondSymbolStock[indexPath.row])
-        case thirdSymbolTable :
-            cell.viewModel = DailyAdjustedViewModel(dailyAdjusted: thirdSymbolStock[indexPath.row])
-        default:
-            cell.viewModel = nil
-        }
+//        switch tableView {
+//        case firstSymbolTable:
+//            cell.viewModel = DailyAdjustedViewModel(dailyAdjusted: firstSymbolStock[indexPath.row])
+//        case secondSymbolTable:
+//            cell.viewModel = DailyAdjustedViewModel(dailyAdjusted: secondSymbolStock[indexPath.row])
+//        case thirdSymbolTable :
+//            cell.viewModel = DailyAdjustedViewModel(dailyAdjusted: thirdSymbolStock[indexPath.row])
+//        default:
+//            cell.viewModel = nil
+//        }
         
         return cell
     }
