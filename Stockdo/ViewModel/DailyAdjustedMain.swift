@@ -18,6 +18,7 @@ enum DailyAdjustedMain:String, CaseIterable {
 
 enum SymbolAvailability:String, CaseIterable {
     
+    case zeroValueExist
     case oneValueExist
     case twoValueExist
     case threeValueExist

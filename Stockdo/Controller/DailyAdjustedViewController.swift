@@ -152,6 +152,8 @@ class DailyAdjustedViewController: UIViewController {
     
     private func getNumberOfRow(to existNumber:Int) -> Int {
         switch symbolAvailability[existNumber] {
+        case .zeroValueExist:
+            return 0
         case .oneValueExist:
            return oneValueRow()
         case .twoValueExist:
@@ -188,9 +190,13 @@ class DailyAdjustedViewController: UIViewController {
     private func threeValueRow() ->Int {
         let arrays = [firstSymbolStock.count, secondSymbolStock.count, thirdSymbolStock.count]
         // if true
-        let sortedArray = arrays.sorted() { $0 > $1}
-        
-        return sortedArray[1]
+        var returnedInt = [Int]()
+        arrays.forEach { array in
+            if array != 0 {
+                returnedInt.append(array)
+            }
+        }
+        return min(returnedInt[0], returnedInt[1], returnedInt[2])
     }
     
    private func setStockValue(on destinationTarget: Int, from: [DailyAdjusted]) {
