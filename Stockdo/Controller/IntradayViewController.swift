@@ -40,7 +40,7 @@ class IntradayViewController: UIViewController {
         view.backgroundColor = .red
         
         
-        fetchStock()
+        fetchStock(keyChain: keyChainValue)
         configureUI()
         configureTable()
         configureNavigationBar(withTitle: "Intraday", prefersLargeTitles: true)

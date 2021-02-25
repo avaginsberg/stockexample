@@ -67,5 +67,15 @@ enum SettingViewModel:Int, CaseIterable {
         }
     }
     
+    var isSecureTextEntry:Bool {
+        switch self {
+        case .apiKey:
+            return true
+        case .interval:
+            return false
+        case .outputSize:
+            return false
+        }
+    }
 }
 

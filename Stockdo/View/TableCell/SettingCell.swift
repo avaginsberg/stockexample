@@ -91,6 +91,7 @@ class SettingCell: UITableViewCell {
         self.settingImage.image = UIImage(systemName: viewModel.iconImages)
         self.setUpKeyboard(viewModel.keyboardType)
         self.apiKeyTextfield.text = viewModel.settingValue
+        self.apiKeyTextfield.isSecureTextEntry = viewModel.isSecureTextEntry
     }
     
     private func configureTextField() {
