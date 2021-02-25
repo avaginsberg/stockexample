@@ -90,6 +90,7 @@ class DailyAdjustedViewController: UIViewController {
         configureUI()
         configureTable()
         fetchDailyStock(to: 0)
+        configureTextField()
     }
     
     //MARK: - Helpers
@@ -115,6 +116,12 @@ class DailyAdjustedViewController: UIViewController {
         firstSymbolTable.tableHeaderView = displayInputView
         firstSymbolTable.delegate = self
         firstSymbolTable.dataSource = self
+    }
+    
+    private func configureTextField() {
+        firstSymbolKeyboard.delegate = self
+        secondSymbolKeyboard.delegate = self
+        thirdSymbolKeyboard.delegate = self
     }
     
     func setStockValue(on destinationTarget: Int, from: [DailyAdjusted]) {
@@ -160,5 +167,67 @@ extension DailyAdjustedViewController: UITableViewDelegate, UITableViewDataSourc
 //        }
         
         return cell
+    }
+}
+
+extension DailyAdjustedViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = ""
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.endEditing(true)
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        
+        if textField.text != "" {
+            return true
+            
+        } else {
+            textField.placeholder = "Type something here"
+            return false
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+//        if let safeText = textField.text?.uppercased() {
+//            self.fetchStock(keyChain: keyChainValue,symbol: safeText)
+//            searchController.dismiss(animated: true) {
+//                textField.text = safeText
+//                self.title = safeText
+//            }
+//        }
+        if textField == firstSymbolKeyboard {
+            
+        } else if textField == secondSymbolKeyboard {
+            
+        } else {
+            
+        }
+        
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+            let newText = (textField.text! as NSString).replacingCharacters(in: range, with: string) as String
+            return checkLimitValue(key: newText, upperLimit: 12)
+    }
+    
+    func checkLimitValue(key: String, upperLimit: Int) -> Bool {
+        if key == "" {
+            return true
+        } else {
+            if key.count <= upperLimit {
+                
+                return true
+            } else {
+                
+                return false
+            }
+        }
     }
 }
