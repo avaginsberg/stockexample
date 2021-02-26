@@ -41,10 +41,10 @@ struct Service {
         }.resume()
       }
 
-    static func fetchDailyStock(_ dateFormatter: DateFormatter, completion: @escaping([DailyAdjusted]) -> Void) {
+    static func fetchDailyStock(_ api:String, _ symbol: String, _ dateFormatter: DateFormatter, completion: @escaping([DailyAdjusted]) -> Void) {
         var dailyStocks = [DailyAdjusted]()
         
-        guard let stocksURL = URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=TSCO.LON&outputsize=full&apikey=demo") else {
+        guard let stocksURL = URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=\(symbol)&outputsize=\(AppData.outputSizeValue)&apikey=\(api)") else {
             fatalError("URL is not defined")
         }
         URLSession.shared.dataTask(with: stocksURL) { (data, response, error) in

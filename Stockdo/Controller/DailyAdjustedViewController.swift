@@ -19,6 +19,15 @@ class DailyAdjustedViewController: UIViewController {
     
     private var activeTextfieldIndex = [Int]()
     
+    var keyChainValue:String? {
+        do {
+            return try KeyChainStore.APIServices.getValue(for: AppData.accounts)
+        } catch {
+            print(error)
+        }
+        return nil
+    }
+    
     private var existNumber:Int {
         get {
             let arrays = [firstSymbolStock.count, secondSymbolStock.count, thirdSymbolStock.count]
@@ -115,8 +124,8 @@ class DailyAdjustedViewController: UIViewController {
     
     //MARK: - Helpers
     
-    private func fetchDailyStock(index:Int,to dailyAdjusted: Int) {
-        Service.fetchDailyStock(dailyFormatter) { dailyStocks in
+    private func fetchDailyStock(key:String,symbol:String,index:Int,to dailyAdjusted: Int) {
+        Service.fetchDailyStock(key, symbol, dailyFormatter) { dailyStocks in
             print(dailyStocks.count)
             
             self.setStockValue(on: dailyAdjusted, from: dailyStocks)
@@ -287,21 +296,17 @@ extension DailyAdjustedViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-//        if let safeText = textField.text?.uppercased() {
-//            self.fetchStock(keyChain: keyChainValue,symbol: safeText)
-//            searchController.dismiss(animated: true) {
-//                textField.text = safeText
-//                self.title = safeText
-//            }
-//        }
-        if textField == firstSymbolKeyboard {
-            fetchDailyStock(index: 1, to: 0)
-        } else if textField == secondSymbolKeyboard {
-            fetchDailyStock(index: 2, to: 1)
+        if let safeText = textField.text?.uppercased(), let keyChain = keyChainValue {
+            if textField == firstSymbolKeyboard {
+                fetchDailyStock(key: keyChain, symbol: safeText,index: 1, to: 0)
+            } else if textField == secondSymbolKeyboard {
+                fetchDailyStock(key: keyChain, symbol: safeText, index: 2, to: 1)
+            } else {
+                fetchDailyStock(key: keyChain, symbol: safeText, index: 3, to: 2)
+            }
         } else {
-            fetchDailyStock(index: 3, to: 2)
+            
         }
-        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
