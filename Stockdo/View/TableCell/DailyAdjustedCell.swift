@@ -27,7 +27,7 @@ class DailyAdjustedCell: UITableViewCell {
     private lazy var firstOpenLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = .black
-        $0.textAlignment = .left
+        $0.textAlignment = .center
         $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
     }
@@ -35,7 +35,7 @@ class DailyAdjustedCell: UITableViewCell {
     private lazy var firstLowLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = .black
-        $0.textAlignment = .left
+        $0.textAlignment = .center
         $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
     }
@@ -53,7 +53,7 @@ class DailyAdjustedCell: UITableViewCell {
     private lazy var secondOpenLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = .black
-        $0.textAlignment = .left
+        $0.textAlignment = .center
         $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
     }
@@ -61,7 +61,7 @@ class DailyAdjustedCell: UITableViewCell {
     private lazy var secondLowLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = .black
-        $0.textAlignment = .left
+        $0.textAlignment = .center
         $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
     }
@@ -79,7 +79,7 @@ class DailyAdjustedCell: UITableViewCell {
     private lazy var thirdOpenLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = .black
-        $0.textAlignment = .left
+        $0.textAlignment = .center
         $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
     }
@@ -87,7 +87,7 @@ class DailyAdjustedCell: UITableViewCell {
     private lazy var thirdLowLabel = UILabel().with {
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = .black
-        $0.textAlignment = .left
+        $0.textAlignment = .center
         $0.numberOfLines = 0
         $0.adjustsFontForContentSizeCategory = true
     }

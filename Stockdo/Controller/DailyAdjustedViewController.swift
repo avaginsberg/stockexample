@@ -208,11 +208,11 @@ class DailyAdjustedViewController: UIViewController {
         let dailyAdjustedKind = self.dailyAdjustedMain[destinationTarget]
         switch dailyAdjustedKind {
         case .firstSymbol:
-            self.firstSymbolStock = from
+            self.firstSymbolStock = from.sorted{$0.date > $1.date}
         case .secondSymbol:
-            self.secondSymbolStock = from
+            self.secondSymbolStock = from.sorted{$0.date > $1.date}
         case .thirdSymbol:
-            self.thirdSymbolStock = from
+            self.thirdSymbolStock = from.sorted{$0.date > $1.date}
         }
     }
 }
