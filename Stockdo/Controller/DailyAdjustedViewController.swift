@@ -17,6 +17,8 @@ class DailyAdjustedViewController: UIViewController {
     private let dailyAdjustedMain = DailyAdjustedMain.allCases
     private let symbolAvailability = SymbolAvailability.allCases
     
+    private var activeTextfieldIndex = [Int]()
+    
     private var existNumber:Int {
         get {
             let arrays = [firstSymbolStock.count, secondSymbolStock.count, thirdSymbolStock.count]
@@ -113,13 +115,13 @@ class DailyAdjustedViewController: UIViewController {
     
     //MARK: - Helpers
     
-    private func fetchDailyStock(to dailyAdjusted: Int) {
+    private func fetchDailyStock(index:Int,to dailyAdjusted: Int) {
         Service.fetchDailyStock(dailyFormatter) { dailyStocks in
             print(dailyStocks.count)
             
             self.setStockValue(on: dailyAdjusted, from: dailyStocks)
             DispatchQueue.main.async {
-                self.getAverageData()
+                self.setTextFieldIndex(index:index)
                 self.firstSymbolTable.reloadData()
             }
         }
@@ -143,11 +145,14 @@ class DailyAdjustedViewController: UIViewController {
         thirdSymbolKeyboard.delegate = self
     }
     
-    private func getAverageData() {
-        let maxValue = max(firstSymbolStock.count, secondSymbolStock.count, thirdSymbolStock.count)
-        let minValue = min(firstSymbolStock.count, secondSymbolStock.count, thirdSymbolStock.count)
-        
-        
+    private func setTextFieldIndex(index:Int) {
+        if activeTextfieldIndex.contains(index) {
+            if let activeIndex = activeTextfieldIndex.firstIndex(of: index) {
+                activeTextfieldIndex[activeIndex] = index
+        }
+        } else {
+            activeTextfieldIndex.append(index)
+        }
     }
     
     private func getNumberOfRow(to existNumber:Int) -> Int {
@@ -222,17 +227,38 @@ extension DailyAdjustedViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DailyAdjustedCell.reuseIdentifier, for: indexPath) as? DailyAdjustedCell else { fatalError("Could not create new cell") }
         
-//        switch tableView {
-//        case firstSymbolTable:
-//            cell.viewModel = DailyAdjustedViewModel(dailyAdjusted: firstSymbolStock[indexPath.row])
-//        case secondSymbolTable:
-//            cell.viewModel = DailyAdjustedViewModel(dailyAdjusted: secondSymbolStock[indexPath.row])
-//        case thirdSymbolTable :
-//            cell.viewModel = DailyAdjustedViewModel(dailyAdjusted: thirdSymbolStock[indexPath.row])
-//        default:
-//            cell.viewModel = nil
-//        }
+        let index = indexPath.row
         
+        switch symbolAvailability[activeTextfieldIndex.count] {
+        case .zeroValueExist:
+            cell.viewModel = DailyAdjustedViewModel()
+        case .oneValueExist:
+            if activeTextfieldIndex.first == 1 {
+                cell.viewModel = DailyAdjustedViewModel(firstSymbol: firstSymbolStock[index])
+            } else if activeTextfieldIndex.first == 2 {
+                cell.viewModel = DailyAdjustedViewModel(secondSymbol: secondSymbolStock[index])
+            }else {
+                cell.viewModel = DailyAdjustedViewModel(thirdSymbol: thirdSymbolStock[index])
+            }
+        case .twoValueExist:
+            let sortedArray = activeTextfieldIndex.sorted() { $0 < $1}
+            let firstIndex = sortedArray[0]
+            let secondIndex = sortedArray[1]
+            
+            if firstIndex == 1 {
+                if secondIndex == 2 {
+                    cell.viewModel = DailyAdjustedViewModel(firstSymbol: firstSymbolStock[index], secondSymbol: secondSymbolStock[index])
+                }else if secondIndex == 3 {
+                    cell.viewModel = DailyAdjustedViewModel(firstSymbol: firstSymbolStock[index], thirdSymbol: thirdSymbolStock[index])
+                }
+            }else if firstIndex == 2{
+                if secondIndex == 3 {
+                    cell.viewModel = DailyAdjustedViewModel(secondSymbol: secondSymbolStock[index], thirdSymbol: thirdSymbolStock[index])
+                }
+            }
+        case .threeValueExist:
+            cell.viewModel = DailyAdjustedViewModel(firstSymbol: firstSymbolStock[index], secondSymbol: secondSymbolStock[index], thirdSymbol: thirdSymbolStock[index])
+        }
         return cell
     }
 }
@@ -269,11 +295,11 @@ extension DailyAdjustedViewController: UITextFieldDelegate {
 //            }
 //        }
         if textField == firstSymbolKeyboard {
-            fetchDailyStock(to: 0)
+            fetchDailyStock(index: 1, to: 0)
         } else if textField == secondSymbolKeyboard {
-            fetchDailyStock(to: 1)
+            fetchDailyStock(index: 2, to: 1)
         } else {
-            fetchDailyStock(to: 2)
+            fetchDailyStock(index: 3, to: 2)
         }
         
     }
