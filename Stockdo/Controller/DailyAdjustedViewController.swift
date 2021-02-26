@@ -23,7 +23,7 @@ class DailyAdjustedViewController: UIViewController {
         do {
             return try KeyChainStore.APIServices.getValue(for: AppData.accounts)
         } catch {
-            print(error)
+            showError(error.localizedDescription)
         }
         return nil
     }

@@ -103,7 +103,7 @@ extension SettingViewController: SettingConfiguration {
         do {
             try KeyChainStore.APIServices.setValue(value, for: AppData.accounts)
         } catch {
-            print(error)
+            showError(error.localizedDescription)
         }
         tableView.reloadData()
     }
