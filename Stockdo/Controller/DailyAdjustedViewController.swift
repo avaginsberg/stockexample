@@ -303,7 +303,8 @@ extension DailyAdjustedViewController: UITextFieldDelegate {
                 fetchDailyStock(key: keyChain, symbol: safeText, index: 3, to: 2)
             }
         } else {
-            
+            showError("You need to configure your API Key first")
+            textField.text = nil
         }
     }
     

@@ -132,7 +132,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "BD05CAFC-E6BB-4DED-9EF6-9A3070BE0DC6 - 9d5efac73ef83591"
+                  uuid = "BD05CAFC-E6BB-4DED-9EF6-9A3070BE0DC6 - 9d5efac73ef832f6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -142,12 +142,12 @@
                   urlString = "file:///Users/dayton/Desktop/Github%20iOS%20Backup/Stockdo/Stockdo/Controller/DailyAdjustedViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "211"
-                  endingLineNumber = "211"
+                  startingLineNumber = "218"
+                  endingLineNumber = "218"
                   offsetFromSymbolStart = "215">
                </Location>
                <Location
-                  uuid = "BD05CAFC-E6BB-4DED-9EF6-9A3070BE0DC6 - 81ab7b202bbd8bc9"
+                  uuid = "BD05CAFC-E6BB-4DED-9EF6-9A3070BE0DC6 - 81ab7b202bbd8cae"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -157,8 +157,8 @@
                   urlString = "file:///Users/dayton/Desktop/Github%20iOS%20Backup/Stockdo/Stockdo/Controller/DailyAdjustedViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "211"
-                  endingLineNumber = "211"
+                  startingLineNumber = "218"
+                  endingLineNumber = "218"
                   offsetFromSymbolStart = "94">
                </Location>
             </Locations>
@@ -180,7 +180,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D9FBBB10-E178-4A9F-8643-6BA56179FF35 - 9d5efac73ef83253"
+                  uuid = "D9FBBB10-E178-4A9F-8643-6BA56179FF35 - 9d5efac73ef832b8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -190,12 +190,12 @@
                   urlString = "file:///Users/dayton/Desktop/Github%20iOS%20Backup/Stockdo/Stockdo/Controller/DailyAdjustedViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "213"
-                  endingLineNumber = "213"
+                  startingLineNumber = "220"
+                  endingLineNumber = "220"
                   offsetFromSymbolStart = "360">
                </Location>
                <Location
-                  uuid = "D9FBBB10-E178-4A9F-8643-6BA56179FF35 - 55ead81b0f183e00"
+                  uuid = "D9FBBB10-E178-4A9F-8643-6BA56179FF35 - 55ead81b0f183eeb"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -205,8 +205,8 @@
                   urlString = "file:///Users/dayton/Desktop/Github%20iOS%20Backup/Stockdo/Stockdo/Controller/DailyAdjustedViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "213"
-                  endingLineNumber = "213"
+                  startingLineNumber = "220"
+                  endingLineNumber = "220"
                   offsetFromSymbolStart = "94">
                </Location>
             </Locations>
@@ -228,7 +228,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "FD149B76-C604-4213-BFCB-373E63DDF372 - 9d5efac73ef83215"
+                  uuid = "FD149B76-C604-4213-BFCB-373E63DDF372 - 9d5efac73ef8337a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -238,12 +238,12 @@
                   urlString = "file:///Users/dayton/Desktop/Github%20iOS%20Backup/Stockdo/Stockdo/Controller/DailyAdjustedViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
+                  startingLineNumber = "222"
+                  endingLineNumber = "222"
                   offsetFromSymbolStart = "505">
                </Location>
                <Location
-                  uuid = "FD149B76-C604-4213-BFCB-373E63DDF372 - 1a28b90de087687b"
+                  uuid = "FD149B76-C604-4213-BFCB-373E63DDF372 - 1a28b90de0876914"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -253,8 +253,8 @@
                   urlString = "file:///Users/dayton/Desktop/Github%20iOS%20Backup/Stockdo/Stockdo/Controller/DailyAdjustedViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
+                  startingLineNumber = "222"
+                  endingLineNumber = "222"
                   offsetFromSymbolStart = "94">
                </Location>
             </Locations>

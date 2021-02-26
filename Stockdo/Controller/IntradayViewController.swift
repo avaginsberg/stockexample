@@ -230,12 +230,15 @@ extension IntradayViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let safeText = textField.text?.uppercased() {
-            self.fetchStock(keyChain: keyChainValue,symbol: safeText)
+        if let safeText = textField.text?.uppercased(), let keyChain = keyChainValue {
+            self.fetchStock(keyChain: keyChain,symbol: safeText)
             searchController.dismiss(animated: true) {
                 textField.text = safeText
                 self.title = safeText
             }
+        } else {
+            showError("You need to configure your API Key first")
+            textField.text = nil
         }
     }
     
