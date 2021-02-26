@@ -9,9 +9,6 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
-    // MARK: - Properties
-    
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +39,7 @@ class TabBarViewController: UITabBarController {
             tabBarIcon: intraday,
             IntradayViewController()
         )
-        // Add button
+    
         let daily = navigationControllerTemplate(
             tag: 1,
             title: "Daily Adjusted",
@@ -62,7 +59,7 @@ class TabBarViewController: UITabBarController {
     
     fileprivate func navigationControllerTemplate(tag: Int, title: String, tabBarIcon: UIImage,_ rootViewController: UIViewController) -> UINavigationController {
         
-        // A code template to add navigationController to every tabBarController viewControllers
+        // add navigationController to every tabBarController viewControllers
         let navigation = UINavigationController(rootViewController: rootViewController)
         navigation.tabBarItem.image = tabBarIcon
         navigation.tabBarItem.title = title

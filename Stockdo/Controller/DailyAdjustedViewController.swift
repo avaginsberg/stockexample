@@ -116,8 +116,6 @@ class DailyAdjustedViewController: UIViewController {
         configureNavigationBar(withTitle: "Daily Adjusted", prefersLargeTitles: true)
         configureUI()
         configureTable()
-        // start with no fetch
-//        fetchDailyStock(to: 0)
         configureTextField()
         
     }
@@ -179,7 +177,7 @@ class DailyAdjustedViewController: UIViewController {
     
     private func oneValueRow() ->Int {
         let arrays = [firstSymbolStock.count, secondSymbolStock.count, thirdSymbolStock.count]
-        // if true
+       
         var returnedInt = Int()
         arrays.forEach { array in
             if array != 0 {
@@ -191,7 +189,7 @@ class DailyAdjustedViewController: UIViewController {
     
     private func twoValueRow() ->Int {
         let arrays = [firstSymbolStock.count, secondSymbolStock.count, thirdSymbolStock.count]
-        // if true
+      
         var returnedInt = [Int]()
         arrays.forEach { array in
             if array != 0 {
@@ -203,7 +201,7 @@ class DailyAdjustedViewController: UIViewController {
     
     private func threeValueRow() ->Int {
         let arrays = [firstSymbolStock.count, secondSymbolStock.count, thirdSymbolStock.count]
-        // if true
+       
         var returnedInt = [Int]()
         arrays.forEach { array in
             if array != 0 {
