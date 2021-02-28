@@ -4,14 +4,29 @@
 //
 //  Created by Dayton on 24/02/21.
 //
-
-struct IntradayStock: Codable {
+struct IntradayStock: Decodable {
     let metaData: IntraMetaData
     let intradayTimeSeries: [String: IntradayTimeSeries]
 
-    enum CodingKeys: String, CodingKey {
-        case metaData = "Meta Data"
-        case intradayTimeSeries = "Time Series (5min)"
+    init(from decoder: Decoder) throws {
+        var timeSeries = [String: IntradayTimeSeries]()
+        var intraMetaData: IntraMetaData?
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        for key in container.allKeys {
+            if key.stringValue != "Meta Data" {
+                let intradaySeries = try container.decode([String: IntradayTimeSeries].self, forKey: CodingKeys(stringValue: key.stringValue)!)
+                timeSeries.merge(dict: intradaySeries)
+            } else {
+                let metaData = try container.decode(IntraMetaData.self, forKey: CodingKeys(stringValue: key.stringValue)!)
+                intraMetaData = metaData
+            }
+        }
+        guard let metaData = intraMetaData else {fatalError("Meta Data was nil")}
+        
+        self.intradayTimeSeries = timeSeries
+        self.metaData = metaData
     }
 }
 
@@ -39,5 +54,19 @@ struct IntradayTimeSeries: Codable {
         case high = "2. high"
         case low = "3. low"
         
+    }
+}
+
+//MARK: - Dynamic Coding Key Initializer
+struct CodingKeys: CodingKey {
+    var stringValue: String
+    
+    init?(stringValue: String) {
+        self.stringValue = stringValue
+    }
+    
+    var intValue: Int?
+    init?(intValue: Int) {
+        return nil
     }
 }
